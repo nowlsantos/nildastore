@@ -7,6 +7,6 @@
 
   <ul>
     <li *ngFor="let product of products | async">
-      {{ product.title }}
+      {{ product | json }}
     </li>
   </ul>

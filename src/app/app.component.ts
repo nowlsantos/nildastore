@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '../../node_modules/@angular/fire/firestore';
-import { Observable } from '../../node_modules/rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { ProductService } from './service/product.service';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +12,9 @@ export class AppComponent implements OnInit {
   title = 'NildaStore';
   products: Observable<any[]>;
 
-  constructor(private db: AngularFirestore) {}
+  constructor(private productService: ProductService) {}
 
   ngOnInit() {
-    this.products = this.db.collection('products').valueChanges();
+    this.products = this.productService.getProducts();
   }
 }
