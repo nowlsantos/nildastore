@@ -19,9 +19,9 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebaseConfig), // imports firebase/app needed for everything
     AngularFirestoreModule.enablePersistence(), // imports firebase/firestore, only needed for database features
-    AngularFireDatabaseModule,
+    // AngularFireDatabaseModule,
     // AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    AngularFireStorageModule // imports firebase/storage only needed for storage features
+    // AngularFireStorageModule // imports firebase/storage only needed for storage features
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,8 +5,8 @@
   </h1>
   </div>
 
-  <ul>
-    <li *ngFor="let product of products | async">
+  <ul *ngFor="let product of product$ | async">
+    <li (click)="getProductById(product)">
       {{ product | json }}
     </li>
   </ul>
