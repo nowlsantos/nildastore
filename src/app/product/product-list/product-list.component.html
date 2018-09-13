@@ -1,0 +1,6 @@
+<ul *ngFor="let product of product$ | async">
+  <li>
+    <img [src]="product.image" width="20%" height="20%"/>
+    {{ product.title | json }}
+  </li>
+</ul>

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Product, ProductId } from '../model/product.interface';
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -10,30 +9,29 @@ import { map } from 'rxjs/operators';
 export class ProductService {
 
   private productCollection: AngularFirestoreCollection<Product>;
-  productDoc: AngularFirestoreDocument<Product>;
-  product$: Observable<ProductId[]>;
+  private productDoc: AngularFirestoreDocument<Product>;
 
-  constructor(private readonly afs: AngularFirestore) {}
+  constructor(private afs: AngularFirestore) {
+    this.productCollection = this.afs.collection<Product>('products');
+  }
 
   getProducts() {
-    this.productCollection = this.afs.collection<Product>('products');
-    return this.product$ = this.productCollection.snapshotChanges().pipe(
-      map(actions => actions.map(a => {
-        const data = a.payload.doc.data() as Product;
-        const id = a.payload.doc.id;
+    return this.productCollection.snapshotChanges().pipe(
+      map(actions => actions.map(item => {
+        const data = item.payload.doc.data() as Product;
+        const id = item.payload.doc.id;
         return {id, ...data};
       }))
     );
   }
 
-  getProduct(product) {
-    this.productDoc = this.afs.doc<ProductId>('products/' + product);
+  getProduct(product: Product) {
+    this.productDoc = this.afs.doc<ProductId>(`products/${product}`);
     this.productDoc.valueChanges();
-    console.log('id:', product.id);
   }
 
   update(product: Product) {
-    return this.afs.doc<Product>('products/' + product).update(product);
+    return this.afs.doc<Product>(`products/${product}`).update(product);
   }
 
   add() {}
