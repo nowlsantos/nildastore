@@ -17,7 +17,8 @@
       "dom"
     ],
     "paths": {
-      "@service/*": ["./src/app/service/*"]
+      "ns-material/*":["./src/app/material"],
+      "ns-service/*": ["./src/app/service/*"]
     }
   }
 }
