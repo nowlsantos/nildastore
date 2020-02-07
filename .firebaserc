@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "nildashoppe": {
+      "hosting": {
+        "nildastore": [
+          "nildashoppe"
+        ]
+      }
+    }
+  }
+}

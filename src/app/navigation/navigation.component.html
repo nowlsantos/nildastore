@@ -1,6 +1,28 @@
-<button type="button" 
-    aria-label="Toggle sidenav" 
-    mat-icon-button
-    (click)="open(true)">
-    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-</button>
+<div id="navigation">
+    <button type="button" 
+        aria-label="Toggle sidenav" 
+        mat-icon-button
+        (click)="open(true)">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    <span>
+        <a [routerLink]="['/home']" 
+            routerLinkActive="active"
+            [routerLinkActiveOptions]=" { exact: true }">Home
+        </a>    
+    </span>
+    
+    <!-- <mat-divider [vertical]="true"></mat-divider> -->
+
+    <span>
+        <a [routerLink]="['/cakes']" 
+            routerLinkActive="active"
+            [routerLinkActiveOptions]=" { exact: true }">Products
+        </a>
+    </span>
+    <!-- <span>
+        <a [routerLink]="[ '/cakes', 0, 'new']" 
+            routerLinkActive="active">Add Cake
+        </a>
+    </span> -->
+</div>

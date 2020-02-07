@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "nildastore",
+      "public": "dist/nildastore",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}
