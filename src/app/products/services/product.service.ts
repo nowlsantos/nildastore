@@ -1,54 +1,45 @@
 import { Injectable } from '@angular/core';
-import { ProductModule } from '../product.module';
-
-@Injectable({
-    providedIn: ProductModule
-})
-export class ProductService {
-    constructor() { }
-}
-
-/* 
-import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Speech } from '../models/speech';
+import { AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
+import { Product } from '../models/product';
 import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
-export class SpeechService {
-    private speechCollection: AngularFirestoreCollection<Speech>;
-    private speechDoc: AngularFirestoreDocument<Speech>;
-    private speech: Observable<Speech>;
+export class ProductService {
+    private productCollection: AngularFirestoreCollection<Product>;
+    private productDoc: AngularFirestoreDocument<Product>;
+    private product: Observable<Product>;
 
     constructor(private db: AngularFirestore) {
-        this.speechCollection = this.db.collection<Speech>('speeches');
+        this.productCollection = this.db.collection<Product>('products');
     }
 
-    getSpeeches() {
-        return this.speechCollection.valueChanges({ idField: 'id' });
+    getProducts() {
+        return this.productCollection.valueChanges({ idField: 'id'});
     }
 
-    getSpeech(id: string) {
-        this.speechDoc = this.db.doc(`speeches/${id}`);
-        this.speech = this.speechDoc.valueChanges();
-        return this.speech;
+    getProduct(id: string) {
+        this.productDoc = this.db.doc(`products/${id}`);
+        this.product = this.productDoc.valueChanges();
+        return this.product;
     }
 
-    addSpeech(speech: Speech) {
-        this.speechCollection.add(speech);
+    addProduct(product: Product) {
+        this.productCollection.add(product);
     }
 
-    deleteSpeech(speech: Speech) {
-        this.speechDoc = this.db.doc(`speeches/${speech.id}`);
-        this.speechDoc.delete();
+    deleteProduct(product: Product) {
+        this.productDoc = this.db.doc(`products/${product.id}`);
     }
 
-    updateSpeech(speech: Speech) {
-        this.speechDoc = this.db.doc(`speeches/${speech.id}`);
-        this.speechDoc.update(speech);
+    updateProduct(product: Product) {
+        this.productDoc = this.db.doc(`products/${product.id}`);
+        this.productDoc.delete();
     }
+}
+
+/* 
 
     viewSpeeches() {
         this.speechCollection = this.db.collection<Speech>('speeches');
