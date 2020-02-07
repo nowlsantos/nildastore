@@ -1,43 +1,23 @@
 {
-<<<<<<< HEAD
     "compileOnSave": false,
     "compilerOptions": {
-        "baseUrl": "./",
-        "outDir": "./dist/out-tsc",
-        "sourceMap": true,
-        "declaration": false,
-        "downlevelIteration": true,
-        "experimentalDecorators": true,
-        "module": "esnext",
-        "moduleResolution": "node",
-        "importHelpers": true,
-        "target": "es2015",
-        "typeRoots": [
+      "baseUrl": "./",
+      "outDir": "./dist/out-tsc",
+      "sourceMap": true,
+      "declaration": false,
+      "downlevelIteration": true,
+      "experimentalDecorators": true,
+      "module": "esnext",
+      "moduleResolution": "node",
+      "importHelpers": true,
+      "target": "es2015",
+      "typeRoots": [
         "node_modules/@types"
-        ],
-        "lib": [
+      ],
+      "lib": [
         "es2018",
         "dom"
-        ]
+      ]
     }
-=======
-  "compileOnSave": false,
-  "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "target": "es5",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2017",
-      "dom"
-    ]
   }
->>>>>>> e20b0b2c12cc6e6a7eeb1248a52f702c0c50c3e7
-}
+  
