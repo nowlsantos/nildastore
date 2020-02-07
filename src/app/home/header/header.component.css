@@ -1,0 +1,16 @@
+#grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(425px, 1fr));
+    /* grid-template-columns: 1fr 2fr 1fr; */
+    grid-gap: 10px;    
+    padding: 0 auto;
+}
+
+#grid .main {
+    height: auto;
+    text-align: center;
+ }
+
+ #grid .main img {
+     margin-bottom: 20px;
+ }

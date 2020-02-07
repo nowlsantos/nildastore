@@ -1,0 +1,23 @@
+#home {
+    display: grid;
+    padding: 0;
+    margin: 0;
+    max-width: 960px;
+    height: auto;
+    grid-template-areas:
+        "header"
+        "category"
+        "footer"
+}
+
+.header {
+    grid-area: header;
+}
+
+.category {
+    grid-area: category;
+}
+
+.footer {
+    grid-area: footer;
+}

@@ -1,0 +1,32 @@
+.sidenav-container {
+    background-image: url('../assets/background.png');
+    background-color: #fbdbe8;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+}
+
+.sidenav {
+    width: 250px;
+    background-color: rgba(214, 7, 88, 0.7);
+    padding: 0 20px;
+}
+
+.sidenav-content div {
+    height: 40px;
+    line-height: 40px;
+}
+
+/* span {
+    color: saddlebrown;
+} */
+
+/* Tablet Portrait */
+@media(min-width: 600px) and (max-width: 839.99px) and (orientation: portrait) {
+    /* span {
+        color: saddlebrown;
+        line-height: 40px;
+        padding-left: 10px;
+    } */
+}

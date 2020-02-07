@@ -1,0 +1,67 @@
+.categories {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 10px;
+    height: auto;
+    background-color: white;
+    padding: 10px;
+}
+
+.categories .birthdays {
+    display: flex;
+    background-color: chocolate;
+    height: auto;
+    padding: 10px;
+}
+
+.categories .holidays {
+    display: flex;
+    background-color: crimson;
+    height: auto;
+    padding: 10px;
+}
+
+.categories .occasions {
+    display: flex;
+    background-color:teal;
+    height: auto;
+    padding: 10px;
+}
+
+.categories .birthdays img {
+    padding-right: 10px;
+    height: 150px;
+}
+
+.categories .holidays img {
+    padding-right: 10px;
+    height: 150px;
+}
+
+.categories .occasions img {
+    padding-right: 10px;
+    height: 150px;
+}
+
+.categories .birthdays .description {
+    padding-top: 0px;
+}
+
+.categories .holidays .description {
+    padding-top: 0px;
+}
+
+.categories .occasions .description {
+    padding-top: 0px;
+}
+
+h4 {
+    /* margin-top: 5px; */
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+div p {
+    padding-bottom: 10px;
+    font-size: 0.9em;
+}
