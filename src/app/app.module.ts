@@ -6,8 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFireAuthModule } from '@angular/fire/auth';
+// import { AngularFireStorageModule } from '@angular/fire/storage';
+// import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -23,8 +23,8 @@ import { environment } from '../environments/environment';
         BrowserAnimationsModule,
         AngularFireModule.initializeApp(environment.firebaseConfig, 'nildashoppe'),
         AngularFirestoreModule,
-        AngularFireStorageModule,
-        AngularFireAuthModule,
+        // AngularFireStorageModule,
+        // AngularFireAuthModule,
         SharedModule,
         AppRoutingModule,
     ],

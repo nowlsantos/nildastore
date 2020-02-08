@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import 'firebase/firestore';
 import { AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
 import { Product } from '../models/product';
 import { Observable } from 'rxjs';
@@ -39,8 +40,7 @@ export class ProductService {
     }
 }
 
-/* 
-
+/*
     viewSpeeches() {
         this.speechCollection = this.db.collection<Speech>('speeches');
         return this.speechCollection.valueChanges({ idField: 'id' });

@@ -11,7 +11,7 @@ import { MatSidenav } from '@angular/material/sidenav';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-    @ViewChild('sidenav', { static: false}) sidenav: MatSidenav;
+    @ViewChild('sidenav') sidenav: MatSidenav;
 
     isHandset = false;
 
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
             Breakpoints.Web
         ])
         .pipe(
-            tap(value => console.log(value)),
+            // tap(value => console.log(value)),
             map(result => result.matches),
             share()
         );
@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
         this.layoutChange$.subscribe(value => {
             switch ( value ) {
                 case this.breakpointObserver.isMatched('(max-width: 599.99px) and (orientation: portrait)'):
-                    console.log('Handset Portrait');
+                    // console.log('Handset Portrait');
                     this.isHandset = true;
                     break;
 
@@ -50,19 +50,19 @@ export class AppComponent implements OnInit {
                     break; */
 
                 case this.breakpointObserver.isMatched('(min-width: 600px) and (max-width: 839.99px) and (orientation: portrait)'):
-                    console.log('Tablet Portrait');
+                    // console.log('Tablet Portrait');
                     this.isHandset = false;
                     break;
 
                 case this.breakpointObserver.isMatched('(max-width: 959.99px) and (orientation: landscape)'):
                 case this.breakpointObserver.isMatched('(min-width: 600px) and (max-width: 959.99px) and (orientation: landscape)'):
-                    console.log('Tablet Landscape');
+                    // console.log('Tablet Landscape');
                     this.isHandset = false;
                     break;
 
                 case this.breakpointObserver.isMatched('(min-width: 960px) and (max-width: 1279.99px) and (orientation: landscape)'):
                 case this.breakpointObserver.isMatched('(min-width: 1280px) and (orientation: landscape)'):
-                    console.log('Tablet Landscape | Web landscape');
+                    // console.log('Tablet Landscape | Web landscape');
                     this.isHandset = false;
                     break;
             }

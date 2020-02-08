@@ -10,12 +10,12 @@ import { Product } from './models/product';
 })
 export class ProductListComponent implements OnInit {
 
-    product$: Observable<Product[]>;
+    products$: Observable<Product[]>;
 
     constructor(private productService: ProductService) { }
 
     ngOnInit() {
-        this.product$ = this.productService.getProducts();
-        // this.product$.subscribe(value => console.log(value));
+        this.products$ = this.productService.getProducts();
+        // this.products$.subscribe(value => console.log(value));
     }
 }

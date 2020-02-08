@@ -1,0 +1,25 @@
+.product-card {
+    border: 4px solid white;
+    margin: 10px;
+    background-color: lavenderblush;
+}
+
+.product-card img {
+    background-color: lightpink;
+    margin: 10px;
+    height: 200px;
+}
+
+.product-card .description {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.product-card .price {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.product-card button {
+    margin-right: 10px;
+}
