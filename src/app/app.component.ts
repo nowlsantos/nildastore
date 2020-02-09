@@ -4,6 +4,8 @@ import { map, share, tap } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver} from '@angular/cdk/layout';
 import { Router } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
+import { ViewPort } from './services/viewport.model';
+import { ViewPortService } from './services/viewport.service';
 
 @Component({
     selector: 'app-root',
@@ -13,8 +15,8 @@ import { MatSidenav } from '@angular/material/sidenav';
 export class AppComponent implements OnInit {
     @ViewChild('sidenav') sidenav: MatSidenav;
 
+    private viewPort = new ViewPort();
     isHandset = false;
-
     layoutChange$: Observable<boolean> = this.breakpointObserver.observe(
         [
             Breakpoints.Handset,
@@ -30,6 +32,7 @@ export class AppComponent implements OnInit {
         );
 
     constructor(private breakpointObserver: BreakpointObserver,
+                private viewportService: ViewPortService,
                 private router: Router) {}
 
     ngOnInit() {
@@ -40,32 +43,40 @@ export class AppComponent implements OnInit {
         this.layoutChange$.subscribe(value => {
             switch ( value ) {
                 case this.breakpointObserver.isMatched('(max-width: 599.99px) and (orientation: portrait)'):
-                    // console.log('Handset Portrait');
+                    this.viewPort.device = 'mobile';
+                    this.viewPort.orientation = 'portrait';
                     this.isHandset = true;
                     break;
 
-                /* case this.breakpointObserver.isMatched('(max-width: 959.99px) and (orientation: landscape)'):
-                    console.log('Handset Landscape');
-                    this.isHandset = false;
-                    break; */
+                // case this.breakpointObserver.isMatched('(max-width: 599.99px) and (orientation: landscape)'):
+                //     this.viewPort.device = 'mobile';
+                //     this.viewPort.orientation = 'landscape';
+                //     this.isHandset = true;
+                //     break;
 
                 case this.breakpointObserver.isMatched('(min-width: 600px) and (max-width: 839.99px) and (orientation: portrait)'):
-                    // console.log('Tablet Portrait');
+                    this.viewPort.device = 'tablet';
+                    this.viewPort.orientation = 'portrait';
                     this.isHandset = false;
                     break;
 
                 case this.breakpointObserver.isMatched('(max-width: 959.99px) and (orientation: landscape)'):
                 case this.breakpointObserver.isMatched('(min-width: 600px) and (max-width: 959.99px) and (orientation: landscape)'):
-                    // console.log('Tablet Landscape');
+                    this.viewPort.device = 'tablet';
+                    this.viewPort.orientation = 'landscape';
                     this.isHandset = false;
                     break;
 
                 case this.breakpointObserver.isMatched('(min-width: 960px) and (max-width: 1279.99px) and (orientation: landscape)'):
                 case this.breakpointObserver.isMatched('(min-width: 1280px) and (orientation: landscape)'):
-                    // console.log('Tablet Landscape | Web landscape');
+                default:
+                    this.viewPort.device = 'web';
+                    this.viewPort.orientation = 'landscape';
                     this.isHandset = false;
                     break;
             }
+
+            this.viewportService.broadcastLayout(this.viewPort);
         });
     }
 

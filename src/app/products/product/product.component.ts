@@ -1,6 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '../models/product';
 import { Router } from '@angular/router';
+import { ViewPort } from 'src/app/services/viewport.model';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { ProductBottomsheetComponent } from '../product-bottomsheet/product-bottomsheet.component';
 
 @Component({
     selector: 'app-product',
@@ -10,12 +13,19 @@ import { Router } from '@angular/router';
 export class ProductComponent {
 
     @Input() product: Product;
+    @Input() viewport: ViewPort;
 
-    constructor(private router: Router) { }
-
+    constructor(private router: Router,
+                private bottomSheet: MatBottomSheet ) { }
 
     viewProduct() {
-        this.router.navigate(['/products', this.product.id]);
+        this.viewport.device === 'mobile' ? this.openBottomSheet()
+                                          : this.router.navigate(['/product', this.product.id]);
+    }
+
+    openBottomSheet() {
+        ProductBottomsheetComponent.productID = this.product.id;
+        this.bottomSheet.open(ProductBottomsheetComponent);
     }
 
     editProduct() {

@@ -6,14 +6,23 @@ import { ProductListComponent } from './product-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductNewComponent } from './product-new/product-new.component';
+import { ProductResolver } from './services/product-resolver.service';
+import { ProductBottomsheetComponent } from './product-bottomsheet/product-bottomsheet.component';
 
 const ROUTES: Routes = [
     {
         path: '',
         children: [
             { path: '', component: ProductListComponent },
-            { path: ':id', component: ProductDetailComponent },
-            { path: ':id/edit', component: ProductEditComponent }
+            {
+                path: ':id', component: ProductDetailComponent,
+                resolve: { product: ProductResolver }
+            },
+            {
+                path: ':id/edit',
+                component: ProductEditComponent,
+                resolve: { product: ProductResolver }
+            }
         ]
     }
 ];
@@ -23,11 +32,14 @@ const ROUTES: Routes = [
         ProductListComponent,
         ProductDetailComponent,
         ProductEditComponent,
-        ProductNewComponent
+        ProductNewComponent,
+        ProductBottomsheetComponent
     ],
     imports: [
         SharedModule,
         RouterModule.forChild(ROUTES)
-    ]
+    ],
+    entryComponents: [ ProductBottomsheetComponent ],
+    providers: [ ProductResolver ]
 })
 export class ProductModule { }

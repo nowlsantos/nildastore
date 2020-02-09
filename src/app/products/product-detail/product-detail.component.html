@@ -3,7 +3,7 @@
         <mat-card-title>{{ product.title }}</mat-card-title>
     </mat-card-header>
 
-    <img mat-card-image src="{{ product.image }}" alt="Photo of a product">
+    <img mat-card-image [src]="product.image" alt="Photo of a product">
     
     <mat-card-content>
         <p class="description">{{ product.description }}</p>

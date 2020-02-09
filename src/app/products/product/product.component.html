@@ -1,14 +1,14 @@
 <div class="product-item">
     <div class="product-image">
-        <img src="{{ product.image }}" alt="Photo of the product">
+        <img [src]="product.image" alt="Photo of the product">
     </div>
     <div class="product-content">
         <h4>{{ product.title }}</h4>
         <p class="description">{{ product.description }}</p>
         <p class="price">{{ product.price | currency:'NZD':'symbol'}}</p>
         <div class="product-btn">
-            <button mat-raised-button color="primary" (click)="viewProduct()">View Product</button>
-            <button mat-raised-button color="primary" (click)="editProduct()">Edit Product</button>
+            <button mat-raised-button color="primary" (click)="viewProduct()">View</button>
+            <button mat-raised-button color="primary" (click)="editProduct()">Edit</button>
         </div>
     </div>
 </div>
