@@ -1,0 +1,29 @@
+.product-card {
+    border: 4px solid white;
+    margin: 15px;
+    background-color: lightcoral;
+    text-align: center;
+}
+
+.product-card img {
+    margin: 10px;
+    width: 50%;
+    height: 50%;
+}
+
+.mat-form-field {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    width: 94%;
+    padding: 10px;
+}
+
+div .btn {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.btn .mat-raised-button {
+    margin: auto 10px;
+}

@@ -2,7 +2,7 @@ footer {
     background-color: purple;
     background-image: url('../../../assets/footer-pastries.png');
     background-repeat: no-repeat;
-    background-position-y: -30px;
+    /* background-position-y: -30px; */
     background-position-x: right;
     padding: 0 10px;
 }

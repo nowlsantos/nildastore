@@ -1,0 +1,43 @@
+.logo {
+    display: flex;
+    margin: 10px 0;
+    width: 40px;
+    height: 40px;
+}
+
+.mat-nav-list {
+    margin-top: 20px;
+}
+
+.mat-divider {
+    display: block;
+    margin: auto;
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-top-color: rgba(255,255,255,.3);
+}
+
+.menu {
+    display: flex;
+    margin-bottom: 30px;
+    padding: 0;
+}
+
+.menu span {
+    margin: 10px;
+}
+
+.logo span {
+    font-weight: bold;
+    margin: 10px;
+}
+
+.admin {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    width: 50%;
+    bottom: 10px;
+    /* border: 3px solid #8AC007; */
+    font-weight: bold;
+}

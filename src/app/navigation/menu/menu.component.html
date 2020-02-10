@@ -1,0 +1,19 @@
+<mat-list class="logo">
+    <img src="../../../assets/admin.png" alt="Admin Photo">
+    <span>NildaShoppe</span>
+</mat-list>
+
+<mat-divider></mat-divider>
+
+<mat-nav-list>
+    <div class="menu" *ngFor="let menu of menu$ | async" (click)="viewProductBy(menu.category)">
+        <img [src]="menu.image" alt="">
+        <span>{{ menu.title }}</span>
+    </div>
+    
+    <mat-divider></mat-divider>
+
+    <div class="admin">
+        <a mat-list-item [routerLink]="['/login']">Login</a>
+    </div>
+</mat-nav-list>

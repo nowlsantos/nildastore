@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import 'firebase/firestore';
 import { AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
 import { Product } from '../models/product';
+import { map, first } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -14,14 +16,23 @@ export class ProductService {
         this.productCollection = this.db.collection<Product>('products');
     }
 
-    getProducts() {
-        return this.productCollection.valueChanges({ idField: 'id'});
+    getProducts(): Observable<Product[]> {
+        // return this.productCollection.valueChanges({ idField: 'id'});
+        return this.productCollection.snapshotChanges()
+            .pipe(
+                map( actions => actions.map(action => {
+                    const data = action.payload.doc.data() as Product;
+                    const id = action.payload.doc.id;
+                    return { id, ...data };
+                }),
+                first()
+            )
+        );
     }
 
-    getProduct(id: string) {
+    getProduct(id: string): Observable<Product> {
         this.productDoc = this.db.doc(`products/${id}`);
-        const product = this.productDoc.valueChanges();
-        return product;
+        return this.productDoc.valueChanges().pipe(first());
     }
 
     addProduct(product: Product) {
@@ -34,11 +45,11 @@ export class ProductService {
 
     updateProduct(product: Product) {
         this.productDoc = this.db.doc(`products/${product.id}`);
-        this.productDoc.delete();
+        this.productDoc.update(product);
     }
 
-    filterBy(term: string) {
-        this.productCollection = this.db.collection<Product>('products', ref => ref.where('category', '==', term));
+    filterBy(category: string): Observable<Product[]> {
+        this.productCollection = this.db.collection<Product>('products', ref => ref.where('category', '==', category));
         return this.productCollection.valueChanges({ idField: 'id' });
     }
 }

@@ -18,6 +18,8 @@ export class CategoryComponent implements OnInit {
     }
 
     viewProductsBy(category: string) {
-        this.router.navigate(['/products'], { queryParams: { category }});
+        this.router.navigate(['/products'], {
+            queryParams: { category }
+        });
     }
 }

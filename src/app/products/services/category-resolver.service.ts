@@ -13,11 +13,13 @@ export class CategoryResolver implements Resolve<Product> {
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Product> {
         /* tslint:disable:no-string-literal */
-        const category: string = route.queryParams['category'] || undefined;
+        const category = route.queryParamMap.get('category');
         console.log('CategoryService: ', category);
 
         /* if ( !category ) {
             console.log('Hello Nowl');
+            return this.productService.getProduct(route.paramMap.get('id'))
+                .pipe(first());
         } */
 
         return this.productService.filterBy(`${category}`).pipe(

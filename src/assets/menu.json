@@ -1,0 +1,18 @@
+[
+    {
+        "title": "Birthdays",
+        "image": "../assets/icon_birthday.png",
+        "category": "birthday"
+    },
+    {
+        "title": "Holidays",
+        "image": "../assets/icon_holiday.png",
+        "category": "holiday"
+    },
+    {
+        "title": "Occasions",
+        "image": "../assets/icon_occasion.png",
+        "category": "occasion"
+    }
+]
+

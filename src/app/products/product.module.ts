@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 
-import { ProductListComponent } from './product-list.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductListComponent } from './product-list/product-list.component';
+// import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductNewComponent } from './product-new/product-new.component';
 import { ProductResolver } from './services/product-resolver.service';
@@ -15,7 +16,7 @@ const ROUTES: Routes = [
         children: [
             { path: '', component: ProductListComponent },
             {
-                path: ':id', component: ProductDetailComponent,
+                path: ':id', component: ProductBottomsheetComponent,
                 resolve: { product: ProductResolver }
             },
             {
@@ -30,13 +31,14 @@ const ROUTES: Routes = [
 @NgModule({
     declarations: [
         ProductListComponent,
-        ProductDetailComponent,
+        // ProductDetailComponent,
         ProductEditComponent,
         ProductNewComponent,
         ProductBottomsheetComponent
     ],
     imports: [
         SharedModule,
+        ReactiveFormsModule,
         RouterModule.forChild(ROUTES)
     ],
     entryComponents: [ ProductBottomsheetComponent ],
