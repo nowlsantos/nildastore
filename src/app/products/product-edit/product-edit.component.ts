@@ -13,7 +13,6 @@ export class ProductEditComponent implements OnInit {
 
     productForm: FormGroup;
     product: Product;
-    private id: string;
 
     constructor(private fb: FormBuilder,
                 private router: Router,
@@ -29,7 +28,9 @@ export class ProductEditComponent implements OnInit {
 
         /* tslint:disable:no-string-literal */
         this.product = this.route.snapshot.data['product'];
-        this.route.paramMap.subscribe(params => this.id = params.get('id'));
+        this.route.paramMap.subscribe(params => {
+            this.product.id = params.get('id');
+        });
 
         this.productForm.get('title').valueChanges.subscribe(value => this.product.title = value );
         this.productForm.get('description').valueChanges.subscribe(value => this.product.description = value );
@@ -45,7 +46,6 @@ export class ProductEditComponent implements OnInit {
     deleteProduct() {}
 
     onSubmit() {
-        this.product.id = this.id;
         this.productService.updateProduct(this.product);
 
         this.router.navigate(['/products'], {
