@@ -18,6 +18,40 @@
     line-height: 40px;
 }
 
+/* Preloader */
+.loader {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+    transform: translateY(-50%);
+}
+  
+.loader:after {
+    content: ' ';
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 5px solid indigo;
+    border-color: indigo transparent indigo transparent;
+    animation: loader 1.2s linear infinite;
+}
+  
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 /* Tablet Portrait */
 @media(min-width: 600px) and (max-width: 839.99px) and (orientation: portrait) {
     

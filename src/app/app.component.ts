@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map, share, tap } from 'rxjs/operators';
+import { map, share, tap, filter } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver} from '@angular/cdk/layout';
-import { Router } from '@angular/router';
+import { Router, RouterEvent, RouteConfigLoadStart, RouteConfigLoadEnd, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
 import { ViewPort } from './services/viewport.model';
 import { ViewPortService } from './services/viewport.service';
@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
     @ViewChild('sidenav') sidenav: MatSidenav;
 
     private viewPort = new ViewPort();
+    isLoading = false;
     isHandset = false;
     layoutChange$: Observable<boolean> = this.breakpointObserver.observe(
         [
@@ -36,7 +37,28 @@ export class AppComponent implements OnInit {
                 private router: Router) {}
 
     ngOnInit() {
+        this.routerEvents();
         this.onLayoutChange();
+    }
+
+    private routerEvents() {
+        this.router.events.pipe(filter( event => event instanceof RouterEvent))
+            .subscribe( (event: RouterEvent) => {
+                switch ( true ) {
+                    case event instanceof RouteConfigLoadStart:
+                    case event instanceof NavigationStart:
+                        this.isLoading = true;
+                        break;
+
+                    case event instanceof RouteConfigLoadEnd:
+                    case event instanceof NavigationEnd:
+                    case event instanceof NavigationError:
+                    case event instanceof NavigationCancel:
+                    default:
+                        this.isLoading = false;
+                        break;
+                }
+        });
     }
 
     private onLayoutChange() {

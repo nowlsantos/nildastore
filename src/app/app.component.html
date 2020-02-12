@@ -12,6 +12,8 @@
             <app-navigation *ngIf="isHandset" (opened)=sidenav.open()></app-navigation>
             <!-- <span>Nilda's Custom Cakes</span> -->
         </div>
-        <router-outlet></router-outlet>
+        <router-outlet>
+            <span class="loader" *ngIf="isLoading"></span>  
+        </router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>
