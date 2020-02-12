@@ -10,11 +10,13 @@ const routes: Routes = [
     },
     {
         path: 'products',
-        loadChildren: () => import('./products/product.module').then( m => m.ProductModule )
+        loadChildren: () => import('./products/product.module').then( m => m.ProductModule ),
+        data: { preload: true }
     },
     {
         path: 'login',
-        loadChildren: () => import('./admin/admin.module').then( m => m.AdminModule )
+        loadChildren: () => import('./admin/admin.module').then( m => m.AdminModule ),
+        data: { preload: true }
     },
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
