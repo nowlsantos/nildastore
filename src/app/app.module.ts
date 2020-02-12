@@ -7,8 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 // import { AngularFireStorageModule } from '@angular/fire/storage';
-// import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navbar/navigation.component';
@@ -27,8 +27,8 @@ import { MenuComponent } from './navigation/menu/menu.component';
         HttpClientModule,
         AngularFireModule.initializeApp(environment.firebaseConfig, 'nildashoppe'),
         AngularFirestoreModule,
+        AngularFireAuthModule,
         // AngularFireStorageModule,
-        // AngularFireAuthModule,
         SharedModule,
         AppRoutingModule,
     ],

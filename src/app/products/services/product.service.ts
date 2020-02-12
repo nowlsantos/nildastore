@@ -3,7 +3,7 @@ import 'firebase/firestore';
 import { AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
 import { Product } from '../models/product';
 import { map, first } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, from, of } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -41,11 +41,12 @@ export class ProductService {
 
     deleteProduct(product: Product) {
         this.productDoc = this.db.doc(`products/${product.id}`);
+        this.productDoc.delete();
     }
 
-    updateProduct(product: Product) {
+    updateProduct(product: Partial<Product>): Observable<any> {
         this.productDoc = this.db.doc(`products/${product.id}`);
-        this.productDoc.update(product);
+        return of(this.productDoc.update(product));
     }
 
     filterBy(category: string): Observable<Product[]> {

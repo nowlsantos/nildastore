@@ -20,16 +20,18 @@ export class ProductEditComponent implements OnInit {
                 private productService: ProductService) { }
 
     ngOnInit() {
-        this.productForm = this.fb.group({
-            title: [''],
-            description: [''],
-            price: [''],
-        });
-
         /* tslint:disable:no-string-literal */
+        // ---Data coming from the Product resolver---
         this.product = this.route.snapshot.data['product'];
+
         this.route.paramMap.subscribe(params => {
             this.product.id = params.get('id');
+        });
+
+        this.productForm = this.fb.group({
+            title: [this.product.title],
+            description: [this.product.description],
+            price: [this.product.price],
         });
 
         this.productForm.get('title').valueChanges.subscribe(value => this.product.title = value );
@@ -43,13 +45,12 @@ export class ProductEditComponent implements OnInit {
         });
     }
 
-    deleteProduct() {}
-
     onSubmit() {
-        this.productService.updateProduct(this.product);
-
-        this.router.navigate(['/products'], {
-            queryParams: { category: this.product.category }
-        });
+        this.productService.updateProduct(this.product)
+            .subscribe( () => {
+                this.router.navigate(['/products'], {
+                    queryParams: { category: this.product.category }
+                });
+            });
     }
 }

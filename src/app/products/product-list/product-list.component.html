@@ -1,5 +1,6 @@
 <div *ngFor="let product of products$ | async">
     <app-product [product]="product"
-                 [viewport]="viewport">
+                 [viewport]="viewport"
+                 [isLoggedIn]="isLoggedIn">
     </app-product>
 </div>

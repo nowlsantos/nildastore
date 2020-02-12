@@ -16,7 +16,16 @@
     position: relative;
     text-align: left;
     width: 94%;
-    padding: 10px;
+    /* padding: 10px; */
+}
+
+.mat-form-field-appearance-outline .mat-form-field-wrapper {
+    /* margin: .25em 0; */
+    margin: 0;
+}
+
+.mat-form-field-appearance-outline:not(.mat-form-field-disabled) .mat-form-field-flex:hover .mat-form-field-outline-thick {
+    opacity: 1;
 }
 
 div .btn {

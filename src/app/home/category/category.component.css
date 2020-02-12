@@ -7,21 +7,22 @@
 
 .categories .birthdays {
     display: flex;
-    background-color: chocolate;
+    /* background-color: chocolate; */
+    background-color: #bea0ef;
     height: auto;
     padding: 10px;
 }
 
 .categories .holidays {
     display: flex;
-    background-color: crimson;
+    background-color: #a37ee7;
     height: auto;
     padding: 10px;
 }
 
 .categories .occasions {
     display: flex;
-    background-color:teal;
+    background-color: #9e65ef;
     height: auto;
     padding: 10px;
 }

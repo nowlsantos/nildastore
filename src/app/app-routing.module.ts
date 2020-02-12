@@ -5,16 +5,16 @@ const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     {
         path: 'home',
-        loadChildren: () => import('./home/home.module').then( m => m.HomeModule)
+        loadChildren: () => import('./home/home.module').then( m => m.HomeModule )
     },
     {
         path: 'products',
-        loadChildren: () => import('./products/product.module').then( m => m.ProductModule)
+        loadChildren: () => import('./products/product.module').then( m => m.ProductModule )
     },
-    /* { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent },
-    { path: 'new', component: AddContactComponent}, */
-
+    {
+        path: 'login',
+        loadChildren: () => import('./admin/admin.module').then( m => m.AdminModule )
+    },
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
 ];

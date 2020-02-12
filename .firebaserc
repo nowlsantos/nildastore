@@ -1,11 +1,5 @@
 {
-  "targets": {
-    "nildashoppe": {
-      "hosting": {
-        "nildastore": [
-          "nildashoppe"
-        ]
-      }
-    }
+  "projects": {
+    "default": "nildashoppe"
   }
 }

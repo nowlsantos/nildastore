@@ -27,4 +27,7 @@ export class MenuComponent implements OnInit {
         });
     }
 
+    adminLogin() {
+        this.router.navigate(['/login']);
+    }
 }

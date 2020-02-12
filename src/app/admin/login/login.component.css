@@ -1,0 +1,33 @@
+.social-logout {
+    height: 100%;
+    text-align: center;
+    margin: 50px;
+    display: block;
+}
+
+.social-login {
+    height: 100%;
+    text-align: center;
+    margin: 50px;
+    display: block;
+}
+
+.facebook {
+    background-color: dodgerblue;
+    margin: 0 50px;
+}
+
+.google {
+    background-color: crimson;
+    margin: 20px 50px;
+    width: 133px;
+}
+
+h4 {
+    font-weight: bold;
+    color: black;
+}
+
+h4 h5 {
+    text-align: center;
+}

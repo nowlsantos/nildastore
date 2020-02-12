@@ -1,20 +1,15 @@
 .sidenav-container {
-    background-color: hotpink;
+    background-color: #e9e0f7;
+    /* background-color: #f7c1c1; */
 }
 
 .sidenav {
     width: 250px;
-    background-color: rgba(214, 7, 88, 0.7);
+    background-color: rgba(115, 80, 180, 0.7);
     padding: 0 20px;
 }
 
 .sidenav-content {
-    /* background-image: url('../assets/background.png');
-    background-color: #fbdbe8;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; */
-    background-color: #f0c4ab;
     height: auto;
 }
 

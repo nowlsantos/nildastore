@@ -7,8 +7,15 @@
         <p class="description">{{ product.description }}</p>
         <p class="price">{{ product.price | currency:'NZD':'symbol'}}</p>
         <div class="product-btn">
-            <button mat-raised-button color="primary" (click)="viewProduct()">View</button>
-            <button mat-raised-button color="primary" (click)="editProduct()">Edit</button>
+            <button mat-raised-button 
+                    color="primary" 
+                    (click)="viewProduct()">View
+            </button>
+            <button mat-raised-button 
+                    color="primary" 
+                    (click)="editProduct()"
+                    *ngIf="isLoggedIn">Edit
+            </button>
         </div>
     </div>
 </div>

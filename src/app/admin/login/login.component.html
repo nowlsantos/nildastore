@@ -1,0 +1,16 @@
+<div *ngIf="authService.user$ | async as user; else login">
+    <!-- <pre>{{ user | json }}</pre> -->
+    <div class="social-logout">
+        <h4>You can now administer this site.</h4>
+        <h5>Don't forget to logout when closin this app.</h5>
+        <button mat-raised-button color="primary" (click)="onLogout()">Sign Out</button>
+    </div>
+</div>
+
+<ng-template #login>
+    <div class="social-login">
+        <h4>Please login with your preferred provider.</h4>
+        <button mat-raised-button class="google" (click)="googleLogin()">Google Login</button>
+        <button mat-raised-button class="facebook" (click)="facebookLogin()">Facebook Login</button>
+    </div>
+</ng-template>

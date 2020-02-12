@@ -14,6 +14,7 @@ export class ProductComponent {
 
     @Input() product: Product;
     @Input() viewport: ViewPort;
+    @Input() isLoggedIn: boolean;
 
     constructor(private router: Router,
                 private bottomSheet: MatBottomSheet ) { }
