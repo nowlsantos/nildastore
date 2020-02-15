@@ -1,4 +1,4 @@
-<nav id="navigation">
+<mat-toolbar color="primary">
     <button type="button" 
         aria-label="Toggle sidenav" 
         mat-icon-button
@@ -8,19 +8,18 @@
     <span>
         <a [routerLink]="['/home']" 
             routerLinkActive="active"
-            [routerLinkActiveOptions]=" { exact: true }">Home
+            [routerLinkActiveOptions]=" { exact: true }">NildaShoppe
         </a>    
     </span>
-
-    <!-- <span>
-        <a [routerLink]="['/products']" 
-            routerLinkActive="active"
-            [routerLinkActiveOptions]=" { exact: true }">Products
-        </a>
-    </span> -->
-    <!-- <span>
-        <a [routerLink]="[ '/cakes', 0, 'new']" 
-            routerLinkActive="active">Add Cake
-        </a>
-    </span> -->
-</nav>
+</mat-toolbar>
+<!-- <span>
+    <a [routerLink]="['/products']" 
+        routerLinkActive="active"
+        [routerLinkActiveOptions]=" { exact: true }">Products
+    </a>
+</span> -->
+<!-- <span>
+    <a [routerLink]="[ '/cakes', 0, 'new']" 
+        routerLinkActive="active">Add Cake
+    </a>
+</span> -->

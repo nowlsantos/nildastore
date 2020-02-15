@@ -1,25 +1,28 @@
 main {
     position: relative;
+    /* border: 1px solid red; */
 }
 
 .sidenav-container {
     background-color: #e9e0f7;
+    padding-top: 60px;
 }
 
 .sidenav {
-    width: 250px;
-    background-color: rgba(115, 80, 180, 0.7);
+    width: 40vh;
+    background-color: rgba(115, 80, 180, 0.6);
     padding: 0 20px;
+    color: white;
 }
 
 .sidenav-content {
     height: auto;
 }
 
-.sidenav-content div {
+/* .sidenav-content div {
     height: 40px;
     line-height: 40px;
-}
+} */
 
 /* Preloader */
 :host ::ng-deep .custom-spinner circle {

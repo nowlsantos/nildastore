@@ -3,6 +3,7 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 import { Product } from '../models/product';
 import { Observable } from 'rxjs';
 import { ProductService } from './product.service';
+import { first } from 'rxjs/operators';
 
 @Injectable()
 export class ProductResolver implements Resolve<Product> {
@@ -11,6 +12,6 @@ export class ProductResolver implements Resolve<Product> {
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Product> {
         const id = route.paramMap.get('id');
-        return this.productService.getProduct(id);
+        return this.productService.getProduct(id).pipe(first());
     }
 }

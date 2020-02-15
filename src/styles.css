@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-/* @import '~@angular/material/prebuilt-themes/purple-green.css'; */
-@import '~@angular/material/prebuilt-themes/pink-bluegrey.css';
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 /* Variables */
 :root {
@@ -12,8 +11,6 @@
 html, body { 
     height: 100%;
     background-color: #e9e0f7;
-    /* background-color: #f0c4ab; */
-    /* background-color: #f7c1c1; */
 }
 
 /* Reset */

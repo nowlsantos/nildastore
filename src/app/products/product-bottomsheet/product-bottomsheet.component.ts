@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { Product } from '../models/product';
 import { ProductService } from '../services/product.service';
@@ -18,7 +18,13 @@ export class ProductBottomsheetComponent implements OnInit {
 
     ngOnInit() {
         const id = ProductBottomsheetComponent.productID;
-        this.productService.getProduct(id).subscribe(product => this.product = product);
+        this.loadProduct(id);
+    }
+
+    loadProduct(id: string) {
+        this.productService.getProduct(id).subscribe(product => {
+            this.product = product;
+        });
     }
 
     closeBottomSheet(event: MouseEvent) {

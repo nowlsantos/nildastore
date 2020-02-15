@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../models/product';
 import { Router } from '@angular/router';
 import { ViewPort } from 'src/app/services/viewport.model';
@@ -10,7 +10,7 @@ import { ProductBottomsheetComponent } from '../product-bottomsheet/product-bott
     templateUrl: './product.component.html',
     styleUrls: ['./product.component.css' ]
 })
-export class ProductComponent {
+export class ProductComponent implements OnInit {
 
     @Input() product: Product;
     @Input() viewport: ViewPort;
@@ -18,6 +18,9 @@ export class ProductComponent {
 
     constructor(private router: Router,
                 private bottomSheet: MatBottomSheet ) { }
+
+    ngOnInit() {
+    }
 
     viewProduct() {
         this.viewport.device === 'mobile' ? this.openBottomSheet()

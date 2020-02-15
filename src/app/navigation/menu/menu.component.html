@@ -6,11 +6,18 @@
 <mat-divider></mat-divider>
 
 <mat-nav-list>
-    <div class="menu" *ngFor="let menu of menu$ | async" (click)="viewProductBy(menu.category)">
-        <img [src]="menu.icon" alt="">
-        <span>{{ menu.title }}</span>
+    <div mat-subheader class="sub-header">Cakes</div>
+    <div class="menu" *ngFor="let cake of cakes" (click)="viewProductBy(cake.category)">
+        <img [src]="cake.icon" alt="Cake category icon">
+        <span>{{ cake.title }}</span>
     </div>
+    <mat-divider></mat-divider>
     
+    <div mat-subheader class="sub-header">Pastries</div>
+    <div class="menu" *ngFor="let pastry of pastries" (click)="viewProductBy(pastry.category)">
+        <img [src]="pastry.icon" alt="Pastry category icon">
+        <span>{{ pastry.title }}</span>
+    </div>
     <mat-divider></mat-divider>
 
     <!-- <div class="admin">

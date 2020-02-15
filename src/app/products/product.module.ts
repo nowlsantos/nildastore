@@ -8,7 +8,7 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductNewComponent } from './product-new/product-new.component';
 import { ProductResolver } from './services/product-resolver.service';
 import { ProductBottomsheetComponent } from './product-bottomsheet/product-bottomsheet.component';
-import { CategoryResolver } from './services/category-resolver.service';
+// import { CategoryResolver } from './services/category-resolver.service';
 
 const ROUTES: Routes = [
     {
@@ -16,17 +16,15 @@ const ROUTES: Routes = [
         children: [
             {
                 path: '', component: ProductListComponent,
-                resolve: { products: CategoryResolver }
+                // resolve: { products: CategoryResolver }
             },
             {
                 path: ':id', component: ProductBottomsheetComponent,
-                resolve: { product: ProductResolver }
             },
             {
                 path: ':id/edit',
                 component: ProductEditComponent,
-                resolve: { product: ProductResolver },
-                data: { state: ':id/edit' }
+                resolve: { product: ProductResolver }
             }
         ]
     }
@@ -44,7 +42,7 @@ const ROUTES: Routes = [
         ReactiveFormsModule,
         RouterModule.forChild(ROUTES)
     ],
-    entryComponents: [ ProductBottomsheetComponent ],
-    providers: [ ProductResolver, CategoryResolver ]
+    // entryComponents: [ ProductBottomsheetComponent ],
+    providers: [ ProductResolver ]
 })
 export class ProductModule { }

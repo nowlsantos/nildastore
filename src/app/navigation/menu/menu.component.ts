@@ -12,13 +12,19 @@ import { Menu } from 'src/app/services/menu.model';
 })
 export class MenuComponent implements OnInit {
 
-    menu$: Observable<Menu[]>;
+    cakes: Menu[];
+    pastries: Menu[];
 
     constructor(private menuService: MenuService,
                 private router: Router) { }
 
     ngOnInit() {
-        this.menu$ = this.menuService.getMenus();
+        this.menuService.getMenus().subscribe(menu => {
+            console.log(menu);
+            /* tslint:disable:no-string-literal */
+            this.cakes = menu['cake'];
+            this.pastries = menu['pastries'];
+        });
     }
 
     viewProductBy(category: string) {

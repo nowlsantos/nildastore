@@ -1,18 +1,31 @@
-[
-    {
-        "title": "Birthdays",
-        "icon": "../assets/icon_birthday.png",
-        "category": "birthday"
-    },
-    {
-        "title": "Holidays",
-        "icon": "../assets/icon_holiday.png",
-        "category": "holiday"
-    },
-    {
-        "title": "Occasions",
-        "icon": "../assets/icon_occasion.png",
-        "category": "occasion"
-    }
-]
-
+{
+    "cake" : [
+        {
+            "title": "Birthdays",
+            "icon": "../assets/icon_birthday.png",
+            "category": "birthday"
+        },
+        {
+            "title": "Holidays",
+            "icon": "../assets/icon_holiday.png",
+            "category": "holiday"
+        },
+        {
+            "title": "Occasions",
+            "icon": "../assets/icon_occasion.png",
+            "category": "occasion"
+        }
+    ],
+    "pastries": [
+        {
+            "title": "Cupcakes",
+            "icon": "../assets/icon_cupcake.png",
+            "category": "cupcake"
+        },
+        {
+            "title": "Macaroons",
+            "icon": "../assets/icon_macaroon.png",
+            "category": "macaroon"
+        }
+    ]
+}

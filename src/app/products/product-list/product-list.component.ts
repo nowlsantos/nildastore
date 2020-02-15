@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
-import { Observable, of } from 'rxjs';
-import { map, finalize } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Product } from '../models/product';
 import { ViewPortService } from '../../services/viewport.service';
 import { ViewPort } from '../../services/viewport.model';
@@ -19,7 +19,6 @@ export class ProductListComponent implements OnInit {
     products: Product[];
     viewport: ViewPort;
     isLoggedIn = false;
-    showSpinner = false;
 
     constructor(private route: ActivatedRoute,
                 private productService: ProductService,
@@ -36,17 +35,7 @@ export class ProductListComponent implements OnInit {
             this.isLoggedIn = isLoggedIn;
         });
 
-        this.showSpinner = true;
-        console.log('Spinner 1: ', this.showSpinner);
-        this.route.data.pipe(
-            map(data => of(data.products))
-        ).subscribe(data => {
-            this.products$ = data;
-            this.showSpinner = false;
-        });
-
-        console.log('Spinner 2: ', this.showSpinner);
-        /* this.route.queryParamMap.subscribe(params => {
+        this.route.queryParamMap.subscribe(params => {
             const category = params.get('category');
 
             if ( category ) {
@@ -54,8 +43,11 @@ export class ProductListComponent implements OnInit {
                     map(products => products.filter(product => product.category === category))
                 );
             }
-
             return this.products$ = this.productService.getProducts();
-        }); */
+        });
+    }
+
+    trackByFn(index: number, item: Product) {
+        return index;
     }
 }

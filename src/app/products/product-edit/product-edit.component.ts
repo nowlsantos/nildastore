@@ -22,8 +22,7 @@ export class ProductEditComponent implements OnInit {
     ngOnInit() {
         /* tslint:disable:no-string-literal */
         // ---Data coming from the Product resolver---
-        // this.product = this.route.snapshot.data['product'];
-        this.route.data.subscribe( data => this.product = data.products);
+        this.route.data.subscribe( data => this.product = data.product );
 
         this.route.paramMap.subscribe(params => {
             this.product.id = params.get('id');

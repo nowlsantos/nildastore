@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navbar/navigation.component';
 import { environment } from '../environments/environment';
 import { MenuComponent } from './navigation/menu/menu.component';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MenuComponent } from './navigation/menu/menu.component';
         AngularFireAuthModule,
         // AngularFireStorageModule,
         SharedModule,
+        HomeModule,
         AppRoutingModule,
     ],
     providers: [],

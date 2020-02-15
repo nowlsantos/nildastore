@@ -8,18 +8,15 @@
     </mat-sidenav>
 
     <mat-sidenav-content class="sidenav-content">
-        <div>
-            <app-navigation *ngIf="isHandset" (opened)=sidenav.open()></app-navigation>
-            <!-- <span>Nilda's Custom Cakes</span> -->
-        </div>
-        <mat-spinner class="custom-spinner" 
-                     *ngIf="isLoading"
-                     diameter="50"
-                     style="margin:0 auto;">
-        </mat-spinner>
+        <app-navigation *ngIf="isHandset" (opened)=sidenav.open()></app-navigation>
+        
         <main [@routeAnimation]="getState(myOutlet)">
-            <router-outlet #myOutlet="outlet">
-            </router-outlet>
+            <mat-spinner class="custom-spinner" 
+                        *ngIf="isLoading"
+                        diameter="70"
+                        style="margin:0 auto;">
+            </mat-spinner>
+            <router-outlet #myOutlet="outlet"></router-outlet>
         </main>
     </mat-sidenav-content>
 </mat-sidenav-container>

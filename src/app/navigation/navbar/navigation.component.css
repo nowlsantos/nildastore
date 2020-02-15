@@ -1,16 +1,24 @@
-#navigation {
-    width: 100%;
+.mat-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 998;
     flex: 1 1 auto;
+    color: white;
 }
 
 .material-icons {
     transform: scale(1.3);
     padding: 0;
-    color: #734fb4;
 }
 
-#navigation span {
+.mat-toolbar span {
     margin: 0 10px;
     font-weight: bold;
-    color: var(--primary);
+    color: var(--warn);
+}
+
+.mat-toolbar a {
+    color: white;
 }
