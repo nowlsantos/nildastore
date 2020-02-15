@@ -7,7 +7,7 @@
 
 <mat-nav-list>
     <div class="menu" *ngFor="let menu of menu$ | async" (click)="viewProductBy(menu.category)">
-        <img [src]="menu.image" alt="">
+        <img [src]="menu.icon" alt="">
         <span>{{ menu.title }}</span>
     </div>
     

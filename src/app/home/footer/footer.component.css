@@ -1,5 +1,6 @@
 footer {
-    background-color: #734fb4;
+    /* background-color: #734fb4; */
+    background-color: #a37ee7;
     background-image: url('../../../assets/footer-pastries.png');
     background-repeat: no-repeat;
     background-position-x: right;
@@ -23,7 +24,7 @@ footer .copyright, .tagline {
 }
 
 footer .title {
-    color: goldenrod;
+    color: black;
 }
 
 /* footer ul {
@@ -44,9 +45,9 @@ footer .email {
 }
 
 footer a {
-    color: lightskyblue;
+    color: blue;
 }
 
 footer a:hover {
-    color: blue;
+    color: var(--accent);
 }

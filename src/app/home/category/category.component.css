@@ -7,10 +7,10 @@
 
 .categories .birthdays {
     display: flex;
-    /* background-color: chocolate; */
-    background-color: #bea0ef;
+    background-color: #ceb8f1;
     height: auto;
     padding: 10px;
+    color: #673fb1
 }
 
 .categories .holidays {
@@ -22,9 +22,11 @@
 
 .categories .occasions {
     display: flex;
-    background-color: #9e65ef;
+    /* background-color: #9e65ef; */
+    background-color: #ceb8f1;
     height: auto;
     padding: 10px;
+    color: #673fb1;
 }
 
 .categories .birthdays img {

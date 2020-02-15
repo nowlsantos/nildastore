@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { map, finalize } from 'rxjs/operators';
 import { Product } from '../models/product';
 import { ViewPortService } from '../../services/viewport.service';
 import { ViewPort } from '../../services/viewport.model';
@@ -10,13 +11,15 @@ import { LoginService } from 'src/app/admin/login.service';
 @Component({
     selector: 'app-product-list',
     templateUrl: './product-list.component.html',
-    styleUrls: ['./product-list.component.css']
+    styleUrls: [ './product-list.component.css' ]
 })
 export class ProductListComponent implements OnInit {
 
     products$: Observable<Product[]>;
+    products: Product[];
     viewport: ViewPort;
     isLoggedIn = false;
+    showSpinner = false;
 
     constructor(private route: ActivatedRoute,
                 private productService: ProductService,
@@ -33,9 +36,26 @@ export class ProductListComponent implements OnInit {
             this.isLoggedIn = isLoggedIn;
         });
 
-        this.route.queryParamMap.subscribe(params => {
-            const category = params.get('category');
-            this.products$ = this.productService.filterBy(category);
+        this.showSpinner = true;
+        console.log('Spinner 1: ', this.showSpinner);
+        this.route.data.pipe(
+            map(data => of(data.products))
+        ).subscribe(data => {
+            this.products$ = data;
+            this.showSpinner = false;
         });
+
+        console.log('Spinner 2: ', this.showSpinner);
+        /* this.route.queryParamMap.subscribe(params => {
+            const category = params.get('category');
+
+            if ( category ) {
+                return this.products$ = this.productService.getProducts().pipe(
+                    map(products => products.filter(product => product.category === category))
+                );
+            }
+
+            return this.products$ = this.productService.getProducts();
+        }); */
     }
 }

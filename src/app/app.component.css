@@ -1,6 +1,9 @@
+main {
+    position: relative;
+}
+
 .sidenav-container {
     background-color: #e9e0f7;
-    /* background-color: #f7c1c1; */
 }
 
 .sidenav {
@@ -19,37 +22,16 @@
 }
 
 /* Preloader */
-.loader {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
+:host ::ng-deep .custom-spinner circle {
+    stroke: mediumpurple;
     position: absolute;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
     top: 50%;
-    transform: translateY(-50%);
-}
-  
-.loader:after {
-    content: ' ';
-    display: block;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 5px solid indigo;
-    border-color: indigo transparent indigo transparent;
-    animation: loader 1.2s linear infinite;
-}
-  
-@keyframes loader {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+    left: 50%;
+    height:100vh;
+    width:100%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
 }
 
 /* Tablet Portrait */

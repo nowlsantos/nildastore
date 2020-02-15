@@ -4,17 +4,20 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 
 import { ProductListComponent } from './product-list/product-list.component';
-// import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductNewComponent } from './product-new/product-new.component';
 import { ProductResolver } from './services/product-resolver.service';
 import { ProductBottomsheetComponent } from './product-bottomsheet/product-bottomsheet.component';
+import { CategoryResolver } from './services/category-resolver.service';
 
 const ROUTES: Routes = [
     {
         path: '',
         children: [
-            { path: '', component: ProductListComponent },
+            {
+                path: '', component: ProductListComponent,
+                resolve: { products: CategoryResolver }
+            },
             {
                 path: ':id', component: ProductBottomsheetComponent,
                 resolve: { product: ProductResolver }
@@ -22,7 +25,8 @@ const ROUTES: Routes = [
             {
                 path: ':id/edit',
                 component: ProductEditComponent,
-                resolve: { product: ProductResolver }
+                resolve: { product: ProductResolver },
+                data: { state: ':id/edit' }
             }
         ]
     }
@@ -31,7 +35,6 @@ const ROUTES: Routes = [
 @NgModule({
     declarations: [
         ProductListComponent,
-        // ProductDetailComponent,
         ProductEditComponent,
         ProductNewComponent,
         ProductBottomsheetComponent
@@ -42,6 +45,6 @@ const ROUTES: Routes = [
         RouterModule.forChild(ROUTES)
     ],
     entryComponents: [ ProductBottomsheetComponent ],
-    providers: [ ProductResolver ]
+    providers: [ ProductResolver, CategoryResolver ]
 })
 export class ProductModule { }

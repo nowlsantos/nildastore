@@ -2,18 +2,23 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, share, tap, filter } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver} from '@angular/cdk/layout';
-import { Router, RouterEvent, RouteConfigLoadStart, RouteConfigLoadEnd, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
+import { Router, RouterEvent, 
+         RouteConfigLoadStart, RouteConfigLoadEnd, 
+         NavigationStart, NavigationEnd, NavigationCancel, NavigationError, RouterOutlet } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
 import { ViewPort } from './services/viewport.model';
 import { ViewPortService } from './services/viewport.service';
+import { routeAnimation } from './app.animation';
+// import { trigger, transition, group, query, style, animate } from '@angular/animations';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+    styleUrls: [ './app.component.css' ],
+    animations: [ routeAnimation ]
 })
 export class AppComponent implements OnInit {
-    @ViewChild('sidenav') sidenav: MatSidenav;
+    @ViewChild('sidenav', { static: false }) sidenav: MatSidenav;
 
     private viewPort = new ViewPort();
     isLoading = false;
@@ -59,6 +64,10 @@ export class AppComponent implements OnInit {
                         break;
                 }
         });
+    }
+
+    getState(outlet: RouterOutlet) {
+        return outlet && outlet.activatedRouteData && outlet.activatedRouteData.state;
     }
 
     private onLayoutChange() {
@@ -112,10 +121,5 @@ export class AppComponent implements OnInit {
 
     createContact() {
         this.router.navigate(['/new']);
-    }
-
-    logout() {
-        // this.authService.logout();
-        this.router.navigate(['/login']);
     }
 }

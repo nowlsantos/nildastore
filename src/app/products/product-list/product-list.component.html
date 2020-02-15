@@ -1,3 +1,9 @@
+<mat-spinner class="custom-spinner" 
+             *ngIf="showSpinner"
+             diameter="50"
+             style="margin:0 auto;">
+</mat-spinner>
+
 <div *ngFor="let product of products$ | async">
     <app-product [product]="product"
                  [viewport]="viewport"

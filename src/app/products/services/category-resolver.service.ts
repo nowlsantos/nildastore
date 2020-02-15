@@ -6,21 +6,14 @@ import { ProductService } from './product.service';
 import { first, catchError } from 'rxjs/operators';
 
 @Injectable()
-export class CategoryResolver implements Resolve<Product> {
+export class CategoryResolver implements Resolve<Product[]> {
 
     constructor(private productService: ProductService,
                 private router: Router) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Product> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Product[]> {
         /* tslint:disable:no-string-literal */
         const category = route.queryParamMap.get('category');
-        console.log('CategoryService: ', category);
-
-        /* if ( !category ) {
-            console.log('Hello Nowl');
-            return this.productService.getProduct(route.paramMap.get('id'))
-                .pipe(first());
-        } */
 
         return this.productService.filterBy(`${category}`).pipe(
             first(),

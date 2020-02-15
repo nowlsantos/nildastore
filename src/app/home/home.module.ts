@@ -8,8 +8,8 @@ import { CategoryComponent } from './category/category.component';
 import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
-    { path: '', component: HomeComponent }
-]
+    { path: '', component: HomeComponent, data: { state: 'home' } }
+];
 
 @NgModule({
     declarations: [
