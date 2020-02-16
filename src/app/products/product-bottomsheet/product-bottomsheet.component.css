@@ -4,11 +4,12 @@
 
 :host ::ng-deep .mat-card-header-text {
     margin: 0;
+    color: indigo;
 }
 
 .mat-card-image {
-    width: calc(100% + 12px);
-    margin: 0 -6px;
+    width: calc(100%);
+    margin: 0;
 }
 
 .mat-card-actions, 
@@ -26,4 +27,9 @@
 .mat-card-actions {
     margin: 0;
     padding: 0;
+}
+
+.mat-card-actions button {
+    background-color: #c2185b;
+    color: white;
 }

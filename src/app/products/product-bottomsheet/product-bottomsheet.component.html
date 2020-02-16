@@ -10,6 +10,6 @@
         <p class="price">Price: {{ product?.price | currency:'NZD' : 'symbol'}}</p>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-raised-button color="warn" (click)="closeBottomSheet($event)">Close</button>
+        <button mat-raised-button (click)="closeBottomSheet($event)">Close</button>
     </mat-card-actions>
 </mat-card>
