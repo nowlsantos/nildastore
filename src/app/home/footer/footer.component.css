@@ -1,5 +1,4 @@
 footer {
-    /* background-color: #734fb4; */
     background-color: #a37ee7;
     background-image: url('../../../assets/footer-pastries.png');
     background-repeat: no-repeat;
@@ -18,27 +17,21 @@ footer .grid {
     margin-bottom: 0px;
 }
 
-footer .copyright, .tagline {
+footer .copyright {
     margin: 10px 0;
     font-size: 0.8em;
 }
 
 footer .title {
-    color: black;
+    color: white;
+    font-weight: bold;
 }
 
-/* footer ul {
-    display: flex;
-    justify-content: flex-start;
+footer .tagline {
+    margin: 10px 0;
+    font-size: 0.8em;
+    margin-bottom: 10px;
 }
-
-
-footer ul li img {
-    padding: 0;
-    margin: 0;
-    width: 8%;
-    height: 8%;
-} */
 
 footer .email {
     font-size: 0.8em;

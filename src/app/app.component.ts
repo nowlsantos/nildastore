@@ -2,14 +2,13 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, share, tap, filter } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver} from '@angular/cdk/layout';
-import { Router, RouterEvent, 
-         RouteConfigLoadStart, RouteConfigLoadEnd, 
+import { Router, RouterEvent,
+         RouteConfigLoadStart, RouteConfigLoadEnd,
          NavigationStart, NavigationEnd, NavigationCancel, NavigationError, RouterOutlet } from '@angular/router';
-import { MatSidenav } from '@angular/material/sidenav';
+import { MatSidenav, MatSidenavContainer } from '@angular/material/sidenav';
 import { ViewPort } from './services/viewport.model';
 import { ViewPortService } from './services/viewport.service';
 import { routeAnimation } from './app.animation';
-// import { trigger, transition, group, query, style, animate } from '@angular/animations';
 
 @Component({
     selector: 'app-root',
@@ -18,6 +17,7 @@ import { routeAnimation } from './app.animation';
     animations: [ routeAnimation ]
 })
 export class AppComponent implements OnInit {
+    @ViewChild(MatSidenavContainer, { static: false }) sidenavContainer: MatSidenavContainer;
     @ViewChild('sidenav', { static: false }) sidenav: MatSidenav;
 
     private viewPort = new ViewPort();
@@ -91,7 +91,7 @@ export class AppComponent implements OnInit {
                     this.isHandset = false;
                     break;
 
-                case this.breakpointObserver.isMatched('(max-width: 959.99px) and (orientation: landscape)'):
+                // case this.breakpointObserver.isMatched('(max-width: 959.99px) and (orientation: landscape)'):
                 case this.breakpointObserver.isMatched('(min-width: 600px) and (max-width: 959.99px) and (orientation: landscape)'):
                     this.viewPort.device = 'tablet';
                     this.viewPort.orientation = 'landscape';
@@ -106,7 +106,7 @@ export class AppComponent implements OnInit {
                     this.isHandset = false;
                     break;
             }
-
+            console.log('ProdList: ', this.viewPort);
             this.viewportService.broadcastLayout(this.viewPort);
         });
     }

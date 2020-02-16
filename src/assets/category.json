@@ -1,0 +1,32 @@
+[
+    {
+        "category": "birthday",
+        "title": "Birthdays",
+        "image": "../assets/birthdays.png",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi ea ex perspiciatis fugit minima eum quasi nihil dolorem, alias doloribus?"
+    },
+    {
+        "category": "holiday",
+        "title": "Holidays and Seasons",
+        "image": "../assets/holidays.png",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi ea ex perspiciatis fugit minima eum quasi nihil dolorem, alias doloribus?"
+    },
+    {
+        "category": "occasion",
+        "title": "Special Occasions",
+        "image": "../assets/occasions.png",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi ea ex perspiciatis fugit minima eum quasi nihil dolorem, alias doloribus?"
+    },
+    {
+        "category": "cupcake",
+        "title": "Cupcakes",
+        "image": "../assets/cupcakes.png",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi ea ex perspiciatis fugit minima eum quasi nihil dolorem, alias doloribus?"
+    },
+    {
+        "category": "macaroon",
+        "title": "Macaroons",
+        "image": "../assets/macaroons.png",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi ea ex perspiciatis fugit minima eum quasi nihil dolorem, alias doloribus?"
+    }
+]

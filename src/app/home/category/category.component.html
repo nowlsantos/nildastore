@@ -1,5 +1,13 @@
 <section class="categories">
-    <div class="birthdays">
+    <div *ngFor="let item of categories" class="category-item">
+        <img [src]="item.image" alt="Pic of CategoryItem">
+        <div class="description">
+            <h4>{{ item.title }}</h4>
+            <p>{{ item.description}}</p>
+            <button mat-raised-button color="primary" (click)="viewProductsBy(item.category)">View</button>
+        </div>
+    </div>
+    <!-- <div class="birthdays">
         <img src="../../../assets/birthdays.png" alt="">
         <div class="description">
             <h4>Birthdays</h4>
@@ -35,4 +43,28 @@
             <button mat-raised-button color="primary" (click)="viewProductsBy('occasion')">View</button>    
         </div>
     </div>
+    <div class="cupcakes">
+        <img src="../../../assets/cupcakes.png" alt="">
+        <div class="description">
+            <h4>Cupcakes</h4>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                Excepturi ea ex perspiciatis fugit minima eum quasi nihil dolorem, 
+                alias doloribus?
+            </p>
+            <button mat-raised-button color="primary" (click)="viewProductsBy('cupcake')">View</button>    
+        </div>
+    </div>
+    <div class="macaroons">
+        <img src="../../../assets/macaroons.png" alt="">
+        <div class="description">
+            <h4>Macaroons</h4>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                Excepturi ea ex perspiciatis fugit minima eum quasi nihil dolorem, 
+                alias doloribus?
+            </p>
+            <button mat-raised-button color="primary" (click)="viewProductsBy('macaroon')">View</button>    
+        </div>
+    </div> -->
 </section>

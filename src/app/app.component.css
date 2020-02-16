@@ -1,11 +1,11 @@
 main {
     position: relative;
     /* border: 1px solid red; */
+    padding-top: 60px;
 }
 
 .sidenav-container {
     background-color: #e9e0f7;
-    padding-top: 60px;
 }
 
 .sidenav {
@@ -35,6 +35,45 @@ main {
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
+}
+
+/* Portrait */
+/* @media(max-width: 599.99px) and (orientation: portrait) {
+    body {
+        width:100vh;
+    
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+      }
+} */
+
+/* Tablet Landscape */
+@media(min-width: 600px) and (max-width: 959.99px) and (orientation: landscape) {
+    /* .sidenav-container {
+        -ms-transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg); 
+        transform: rotate(-90deg);
+        overflow: scroll;
+    } */
+    .sidenav-container {
+        transform: rotate(-90deg);
+        transform-origin: left top;
+        width: 100vh;
+        overflow-x: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        overflow: scroll;
+        /* width:100vh;
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        transform: rotate(-90deg); */
+    }
 }
 
 /* Tablet Portrait */

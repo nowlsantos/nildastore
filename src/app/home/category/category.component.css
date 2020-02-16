@@ -1,11 +1,36 @@
 .categories {
-    display: grid;
+    /* display: grid;
     grid-template-rows: repeat(3, 1fr);
-    grid-gap: 10px;
+    grid-gap: 10px; */
     margin: 10px auto;
 }
 
-.categories .birthdays {
+.category-item {
+    display: flex;
+    background-color: #ceb8f1;
+    height: auto;
+    padding: 10px;
+    color: #673fb1;
+    border: 5px solid white;
+    margin-bottom: 10px;
+}
+
+/* .birthdays, .occasions, .macaroons {
+    display: flex;
+    background-color: #ceb8f1;
+    height: auto;
+    padding: 10px;
+    color: #673fb1
+}
+
+.holidays, .cupcakes {
+    display: flex;
+    background-color: #a37ee7;
+    height: auto;
+    padding: 10px;
+} */
+
+/* .categories .birthdays {
     display: flex;
     background-color: #ceb8f1;
     height: auto;
@@ -22,14 +47,28 @@
 
 .categories .occasions {
     display: flex;
-    /* background-color: #9e65ef; */
     background-color: #ceb8f1;
     height: auto;
     padding: 10px;
     color: #673fb1;
 }
 
-.categories .birthdays img {
+.categories .cupcakes {
+    display: flex;
+    background-color: #a37ee7;
+    height: auto;
+    padding: 10px;
+}
+
+.categories .macaroons {
+    display: flex;
+    background-color: #ceb8f1;
+    height: auto;
+    padding: 10px;
+    color: #673fb1;
+} */
+
+/* .categories .birthdays img {
     padding-right: 10px;
     height: 150px;
 }
@@ -42,9 +81,9 @@
 .categories .occasions img {
     padding-right: 10px;
     height: 150px;
-}
+} */
 
-.categories .birthdays .description {
+/* .categories .birthdays .description {
     padding-top: 0px;
 }
 
@@ -54,11 +93,23 @@
 
 .categories .occasions .description {
     padding-top: 0px;
+} */
+
+.categories img {
+    padding-right: 10px;
+    height: 150px;
+}
+
+.categories .description {
+    padding-top: 0px;
+    color: black;
 }
 
 h4 {
     margin-top: 0;
     margin-bottom: 10px;
+    font-weight: bold;
+    color: black;
 }
 
 div p {

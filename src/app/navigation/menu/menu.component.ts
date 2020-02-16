@@ -20,7 +20,6 @@ export class MenuComponent implements OnInit {
 
     ngOnInit() {
         this.menuService.getMenus().subscribe(menu => {
-            console.log(menu);
             /* tslint:disable:no-string-literal */
             this.cakes = menu['cake'];
             this.pastries = menu['pastries'];

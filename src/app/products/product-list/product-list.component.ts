@@ -27,7 +27,6 @@ export class ProductListComponent implements OnInit {
 
     ngOnInit() {
         this.viewportService.viewportLayout$.subscribe(viewport => {
-            // console.log('ProdList: ', viewport);
             this.viewport = viewport;
         });
 

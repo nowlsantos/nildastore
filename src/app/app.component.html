@@ -3,11 +3,12 @@
         class="sidenav" 
         fixedInViewport
         (click)="closeSideNav()"
+        role="navigation"
         [attr.role]="isHandset ? 'dialog' : 'navigation'">
         <app-menu></app-menu>
     </mat-sidenav>
 
-    <mat-sidenav-content class="sidenav-content">
+    <mat-sidenav-content class="sidenav-content" role="main">
         <app-navigation *ngIf="isHandset" (opened)=sidenav.open()></app-navigation>
         
         <main [@routeAnimation]="getState(myOutlet)">
@@ -19,4 +20,5 @@
             <router-outlet #myOutlet="outlet"></router-outlet>
         </main>
     </mat-sidenav-content>
+
 </mat-sidenav-container>

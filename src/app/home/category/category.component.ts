@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Product } from 'src/app/products/models/product';
+import { CategoryItemService } from 'src/app/services/category-item.service';
+import { CategoryItem } from 'src/app/services/category.model';
 
 @Component({
     selector: 'app-category',
@@ -10,11 +10,15 @@ import { Product } from 'src/app/products/models/product';
 })
 export class CategoryComponent implements OnInit {
 
-    products$: Observable<Product[]>;
+    categories: CategoryItem[];
 
-    constructor(private router: Router) { }
+    constructor(private router: Router,
+                private categoryItemService: CategoryItemService) { }
 
     ngOnInit() {
+        this.categoryItemService.getCategories().subscribe(categories => {
+            this.categories = categories;
+        });
     }
 
     viewProductsBy(category: string) {
