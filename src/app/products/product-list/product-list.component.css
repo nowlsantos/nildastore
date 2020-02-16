@@ -1,0 +1,10 @@
+.fab-btn {
+    right: 20px;
+    bottom: 20px;
+    position: fixed !important;
+}
+
+.mat-flat-button.mat-accent, .mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent {
+    color: white;
+    background: #c2185b;
+}

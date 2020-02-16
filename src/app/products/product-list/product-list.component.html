@@ -1,6 +1,22 @@
-<div *ngFor="let product of products$ | async; trackBy: trackByFn">
-    <app-product [product]="product"
-                 [viewport]="viewport"
-                 [isLoggedIn]="isLoggedIn">
-    </app-product>  
-</div>
+<section>
+    <mat-spinner class="custom-spinner" 
+                *ngIf="isLoading"
+                diameter="70"
+                style="margin:0 auto;">
+    </mat-spinner>
+
+    <div *ngFor="let product of products$ | async; trackBy: trackByFn">
+        <app-product [product]="product"
+                     [viewport]="viewport"
+                     [isLoggedIn]="isLoggedIn">
+        </app-product> 
+    </div>
+
+    <div class="fab-btn" *ngIf="showFab">
+        <button mat-fab
+                aria-label="icon-button with a home icon" 
+                (click)="navigateToHome($event)">
+            <mat-icon>home</mat-icon>
+        </button>
+    </div>
+</section>

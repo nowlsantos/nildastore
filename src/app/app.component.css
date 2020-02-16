@@ -1,7 +1,6 @@
 main {
     position: relative;
     /* border: 1px solid red; */
-    padding-top: 60px;
 }
 
 .sidenav-container {
@@ -17,6 +16,10 @@ main {
 
 .sidenav-content {
     height: auto;
+}
+
+.mat-sidenav-container, .mat-sidenav-content {
+    transform: none !important;
 }
 
 /* .sidenav-content div {
