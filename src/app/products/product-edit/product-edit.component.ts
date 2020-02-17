@@ -39,10 +39,14 @@ export class ProductEditComponent implements OnInit {
         this.productForm.get('price').valueChanges.subscribe(value => this.product.price = value );
     }
 
-    gotoProducts(category: string) {
+    backtoProducts(category: string) {
         this.router.navigate(['/products'], {
             queryParams: { category }
         });
+    }
+
+    deleteProduct(product: Product) {
+        this.productService.deleteProduct(product);
     }
 
     onSubmit() {

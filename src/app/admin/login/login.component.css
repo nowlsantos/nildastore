@@ -15,12 +15,14 @@
 .facebook {
     background-color: dodgerblue;
     margin: 0 50px;
+    color: white;
 }
 
 .google {
-    background-color: crimson;
+    background-color: orangered;
     margin: 20px 50px;
     width: 133px;
+    color: white;
 }
 
 h4 {

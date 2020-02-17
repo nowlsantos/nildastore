@@ -42,9 +42,12 @@ export class ProductListComponent implements OnInit {
             if ( category ) {
                 return this.products$ = this.productService.getProducts().pipe(
                     map(products => products.filter(product => product.category === category)),
-                    tap( () => {
+                    tap( (products) => {
                         this.isLoading = false;
                         this.showFab = true;
+                        products.forEach(product => {
+                            console.log('Date: ', product.date);
+                        });
                     })
                 );
             }

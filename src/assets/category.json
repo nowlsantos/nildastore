@@ -3,30 +3,30 @@
         "category": "birthday",
         "title": "Birthdays",
         "image": "../assets/birthdays.png",
-        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi ea ex perspiciatis fugit minima eum quasi nihil dolorem, alias doloribus?"
+        "description": "Cakes are special. Every birthday, every celebration ends with something sweet, a cake, and people remember. It's all about the memories."
     },
     {
         "category": "holiday",
         "title": "Holidays and Seasons",
         "image": "../assets/holidays.png",
-        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi ea ex perspiciatis fugit minima eum quasi nihil dolorem, alias doloribus?"
+        "description": "May the sweetest cake of Christmas brings lots of sweetness in your life, bring you all together for a great celebration filled with lots of joy and happiness!"
     },
     {
         "category": "occasion",
         "title": "Special Occasions",
         "image": "../assets/occasions.png",
-        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi ea ex perspiciatis fugit minima eum quasi nihil dolorem, alias doloribus?"
+        "description": "Take the broken pieces of your life, bake a master cake out of it. Don't stand still like a lake; keep flowing like a stream!"
     },
     {
         "category": "cupcake",
         "title": "Cupcakes",
         "image": "../assets/cupcakes.png",
-        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi ea ex perspiciatis fugit minima eum quasi nihil dolorem, alias doloribus?"
+        "description": "Cupcakes - when you want to watch your weight, but still feel the pride that comes with eating an entire cake."
     },
     {
         "category": "macaroon",
         "title": "Macaroons",
         "image": "../assets/macaroons.png",
-        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi ea ex perspiciatis fugit minima eum quasi nihil dolorem, alias doloribus?"
+        "description": "It is the sweet simple things in life which are the real ones after all!"
     }
 ]

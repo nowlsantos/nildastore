@@ -8,7 +8,6 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductNewComponent } from './product-new/product-new.component';
 import { ProductResolver } from './services/product-resolver.service';
 import { ProductBottomsheetComponent } from './product-bottomsheet/product-bottomsheet.component';
-// import { CategoryResolver } from './services/category-resolver.service';
 
 const ROUTES: Routes = [
     {
@@ -16,7 +15,6 @@ const ROUTES: Routes = [
         children: [
             {
                 path: '', component: ProductListComponent,
-                // resolve: { products: CategoryResolver }
             },
             {
                 path: ':id', component: ProductBottomsheetComponent,
@@ -42,7 +40,6 @@ const ROUTES: Routes = [
         ReactiveFormsModule,
         RouterModule.forChild(ROUTES)
     ],
-    // entryComponents: [ ProductBottomsheetComponent ],
     providers: [ ProductResolver ]
 })
 export class ProductModule { }

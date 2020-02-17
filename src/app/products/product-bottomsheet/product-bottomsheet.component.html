@@ -6,8 +6,8 @@
     <img mat-card-image [src]="product?.image" alt="Photo of a product">
     
     <mat-card-content>
-        <!-- <p class="description">{{ product?.description }}</p> -->
-        <p class="price">Price: {{ product?.price | currency:'NZD' : 'symbol'}}</p>
+        <p class="description">{{ product?.description }}</p>
+        <!-- <p class="price">Price: {{ product?.price | currency:'NZD' : 'symbol'}}</p> -->
     </mat-card-content>
     <mat-card-actions>
         <button mat-raised-button (click)="closeBottomSheet($event)">Close</button>

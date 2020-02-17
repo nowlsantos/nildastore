@@ -6,26 +6,39 @@
     z-index: 998;
     flex: 1 1 auto;
     color: white;
+    height: 40px;
+}
+
+.mat-toolbar.mat-primary {
+    background: rgba(103, 58, 183, 0.8);
+    color: #fff;
 }
 
 .material-icons {
     transform: scale(1.5);
     padding: 0;
-    color: indigo;
 }
 
 .mat-toolbar span {
-    margin: 0 10px;
-    font-weight: bold;
-    color: var(--warn);
+    margin: 0 4px;
 }
 
 .mat-toolbar a {
+    font-size: small;
     color: white;
 }
 
-span a {
-    font-weight: bold;
-    font-size: 1.3em;
-    color: indigo;
+.mat-icon-button i, .mat-icon-button .mat-icon {
+    line-height: 22px;
+    font-size: 20px;
+}
+
+.mat-icon-button {
+    padding: 0;
+    min-width: 0;
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    line-height: 38px;
+    border-radius: 50%;
 }

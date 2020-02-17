@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     }
 
     googleLogin() {
-        this.authService.googleSignIn();
+        // this.authService.googleSignIn();
         this.loginService.broadcastLogin(true);
     }
 

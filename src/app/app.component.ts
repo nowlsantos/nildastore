@@ -106,7 +106,6 @@ export class AppComponent implements OnInit {
                     this.isHandset = false;
                     break;
             }
-            console.log('ProdList: ', this.viewPort);
             this.viewportService.broadcastLayout(this.viewPort);
         });
     }

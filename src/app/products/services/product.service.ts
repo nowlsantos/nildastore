@@ -4,6 +4,8 @@ import { AngularFirestoreCollection, AngularFirestoreDocument, AngularFirestore 
 import { Product } from '../models/product';
 import { map, first } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
+import { firestore } from 'firebase/app';
+import Timestamp = firestore.Timestamp;
 
 @Injectable({
     providedIn: 'root'
@@ -13,7 +15,7 @@ export class ProductService {
     private productDoc: AngularFirestoreDocument<Product>;
 
     constructor(private db: AngularFirestore) {
-        this.productCollection = this.db.collection<Product>('cakes-pastries');
+        this.productCollection = this.db.collection<Product>('cakes-pastries', ref => ref.orderBy('date', 'desc'));
     }
 
     getProducts(): Observable<Product[]> {
@@ -22,6 +24,9 @@ export class ProductService {
                 map( actions => actions.map(action => {
                     const data = action.payload.doc.data() as Product;
                     const id = action.payload.doc.id;
+                    Object.keys(data).filter(key => data[key] instanceof Timestamp)
+                        .forEach(key => data[key] = data[key].toDate());
+ 
                     return { id, ...data };
                 }),
                 first()

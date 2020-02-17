@@ -14,8 +14,7 @@
                     placeholder="{{ product?.description }}"
                     formControlName="description">
         </mat-form-field>
-        
-        <mat-form-field appearance="fill">
+        <!-- <mat-form-field appearance="fill">
             <mat-label>Price</mat-label>
             <input  matInput 
                     type="number" 
@@ -24,10 +23,11 @@
                     class="example-right-align">
             <span matPrefix>NZ$&nbsp;</span>
             <span matSuffix>.00</span>
-        </mat-form-field> 
+        </mat-form-field>  -->
         <div class="btn">
-            <button mat-raised-button color="primary" (click)="gotoProducts(product?.category)">Back</button>
-            <button mat-raised-button color="primary" type="submit">Update</button>
+            <button mat-raised-button color="primary" (click)="backtoProducts(product?.category)">Back</button>
+            <button mat-raised-button color="accent" type="submit">Update</button>
+            <button mat-raised-button color="warn" (click)="deleteProduct(product)">Delete</button>
         </div>
     </form>
 </div>
