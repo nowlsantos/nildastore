@@ -1,9 +1,10 @@
 <section>
-    <mat-spinner class="custom-spinner" 
-                *ngIf="isLoading"
-                diameter="70"
-                style="margin:0 auto;">
-    </mat-spinner>
+    <ng-container *ngIf="isLoading">
+        <mat-spinner class="custom-spinner" 
+                     diameter="70"
+                     style="margin:0 auto;">
+        </mat-spinner>
+    </ng-container>
 
     <div *ngFor="let product of products$ | async; trackBy: trackByFn">
         <app-product [product]="product"

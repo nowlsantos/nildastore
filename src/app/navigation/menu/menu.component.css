@@ -47,3 +47,8 @@ div.mat-subheader {
     padding: 0;
     color: white;
 }
+
+div img {
+    width: 32px;
+    height: 32px;
+}

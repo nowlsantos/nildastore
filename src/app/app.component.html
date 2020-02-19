@@ -12,11 +12,12 @@
         <app-navigation *ngIf="isHandset" (opened)=sidenav.open()></app-navigation>
         
         <main [@routeAnimation]="getState(myOutlet)">
-            <mat-spinner class="custom-spinner" 
-                        *ngIf="isLoading"
-                        diameter="70"
-                        style="margin:0 auto;">
-            </mat-spinner>
+            <ng-container *ngIf="isLoading">
+                <mat-spinner class="custom-spinner" 
+                             diameter="70"
+                             style="margin:0 auto;">
+                </mat-spinner>
+            </ng-container>
             <router-outlet #myOutlet="outlet"></router-outlet>
         </main>
     </mat-sidenav-content>

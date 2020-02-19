@@ -1,9 +1,9 @@
 header {
     text-align: center;
-    height: 94vh;
-    display: flex;
+    height: 100vh;
+    /* display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     /* border: 1px solid green; */
 }
 
