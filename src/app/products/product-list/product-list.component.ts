@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map, tap, switchMap } from 'rxjs/operators';
 import { Product } from '../models/product';
 import { ViewPortService } from '../../services/viewport.service';
 import { ViewPort } from '../../services/viewport.model';
@@ -21,7 +21,8 @@ export class ProductListComponent implements OnInit {
     showFab = false;
     isLoading = true;
 
-    constructor(private route: ActivatedRoute,
+    constructor(
+        private route: ActivatedRoute,
         private router: Router,
         private productService: ProductService,
         private viewportService: ViewPortService,

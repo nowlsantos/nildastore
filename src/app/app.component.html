@@ -9,9 +9,9 @@
     </mat-sidenav>
 
     <mat-sidenav-content class="sidenav-content" role="main">
-        <app-navigation *ngIf="isHandset" (opened)=sidenav.open()></app-navigation>
-        
+        <!-- <app-navigation *ngIf="isHandset" (opened)=sidenav.open()></app-navigation> -->
         <main [@routeAnimation]="getState(myOutlet)">
+            <app-navigation *ngIf="isHandset" (opened)=sidenav.open()></app-navigation>
             <ng-container *ngIf="isLoading">
                 <mat-spinner class="custom-spinner" 
                              diameter="70"

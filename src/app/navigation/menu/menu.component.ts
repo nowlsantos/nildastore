@@ -8,15 +8,14 @@ import { Menu } from 'src/app/services/menu.model';
     selector: 'app-menu',
     templateUrl: './menu.component.html',
     styleUrls: ['./menu.component.css'],
-    providers: [ MenuService ]
+    providers: [MenuService]
 })
 export class MenuComponent implements OnInit {
 
     cakes: Menu[];
     pastries: Menu[];
 
-    constructor(private menuService: MenuService,
-                private router: Router) { }
+    constructor(private menuService: MenuService, private router: Router) { }
 
     ngOnInit() {
         this.menuService.getMenus().subscribe(menu => {
@@ -32,7 +31,11 @@ export class MenuComponent implements OnInit {
         });
     }
 
-    adminLogin() {
+    /* onLogin() {
         this.router.navigate(['/login']);
+    } */
+
+    onRegister() {
+        this.router.navigate(['/register']);
     }
 }

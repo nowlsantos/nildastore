@@ -15,15 +15,22 @@ const routes: Routes = [
     },
     {
         path: 'products',
-        loadChildren: () => import('./products/product.module').then( m => m.ProductModule ),
+        loadChildren: () => import('./products/product.module').then(m => m.ProductModule),
         data: {
             preload: true,
             state: 'products'
         }
     },
     {
+        path: 'register',
+        loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+        data: {
+            state: 'register'
+        }
+    },
+    {
         path: 'login',
-        loadChildren: () => import('./admin/admin.module').then( m => m.AdminModule ),
+        loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
         data: {
             state: 'login'
         }
@@ -33,7 +40,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [ RouterModule.forRoot(routes, { preloadingStrategy: PreloadingStrategyService}) ],
-    exports: [ RouterModule ]
+    imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadingStrategyService })],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }

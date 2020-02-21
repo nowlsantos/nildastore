@@ -1,25 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
-import { LoginService } from '../login.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-    selector: 'app-login',
-    templateUrl: './login.component.html',
-    styleUrls: ['./login.component.css']
+    selector: 'app-register',
+    templateUrl: './register.component.html',
+    styleUrls: ['./register.component.css']
 })
-export class LoginComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
-    loginForm: FormGroup;
+    registerForm: FormGroup;
     hide = true;
 
     constructor(
         public authService: AuthService,
-        private loginService: LoginService,
         private fb: FormBuilder) { }
 
     ngOnInit() {
-        this.loginForm = this.fb.group({
+        this.registerForm = this.fb.group({
             email: ['', [Validators.email, Validators.required]],
             password: ['', [Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
             Validators.minLength(6),
@@ -29,11 +27,11 @@ export class LoginComponent implements OnInit {
     }
 
     get email() {
-        return this.loginForm.get('email');
+        return this.registerForm.get('email');
     }
 
     get password() {
-        return this.loginForm.get('password');
+        return this.registerForm.get('password');
     }
 
     getEmailErrorMessage() {
@@ -45,21 +43,7 @@ export class LoginComponent implements OnInit {
         return this.password.hasError('required') ? 'You must enter a password' : '';
     }
 
-    onLogin() {
-        console.log(this.loginForm.value);
-    }
-
-    facebookLogin() {
-        this.authService.facebookSignIn();
-    }
-
-    googleLogin() {
-        this.authService.googleSignIn();
-        this.loginService.broadcastLogin(true);
-    }
-
-    onLogout() {
-        this.authService.signOut();
-        this.loginService.broadcastLogin(false);
+    onSignUp() {
+        this.authService.emailSignUp(this.email.value, this.password.value);
     }
 }

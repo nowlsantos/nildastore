@@ -1,27 +1,7 @@
-.social-logout {
-    height: 90vh;
-    text-align: center;
-    margin: 50px;
-    display: block;
-}
-
-.social-login {
+.social-register {
     height: 90vh;
     display: block;
 }
-
-/* .facebook {
-    background-color: dodgerblue;
-    margin: 0 50px;
-    color: white;
-}
-
-.google {
-    background-color: orangered;
-    margin: 20px 50px;
-    width: 133px;   
-    color: white;
-} */
 
 .mat-card>:first-child, 
 .mat-card-content>:first-child {
@@ -40,10 +20,6 @@ h4 h5 {
 
 .mat-card {
     width: 300px;
-    /* display: block;
-    margin-left: auto;
-    margin-right: auto;
-    position: absolute; */
     top: 40%;
     left: 50%;
     margin-right: -50%;
@@ -54,7 +30,7 @@ h4 h5 {
     width: 100%;
 }
 
-.login-btn {
+.register-btn {
     display: block;
     width: 100%;
     margin-top: 16px;

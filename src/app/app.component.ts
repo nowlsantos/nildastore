@@ -1,10 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, share, tap, filter } from 'rxjs/operators';
-import { Breakpoints, BreakpointObserver} from '@angular/cdk/layout';
-import { Router, RouterEvent,
-         RouteConfigLoadStart, RouteConfigLoadEnd,
-         NavigationStart, NavigationEnd, NavigationCancel, NavigationError, RouterOutlet } from '@angular/router';
+import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import {
+    Router, RouterEvent,
+    RouteConfigLoadStart, RouteConfigLoadEnd,
+    NavigationStart, NavigationEnd, NavigationCancel, NavigationError, RouterOutlet
+} from '@angular/router';
 import { MatSidenav, MatSidenavContainer } from '@angular/material/sidenav';
 import { ViewPort } from './services/viewport.model';
 import { ViewPortService } from './services/viewport.service';
@@ -13,8 +15,8 @@ import { routeAnimation } from './app.animation';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: [ './app.component.css' ],
-    animations: [ routeAnimation ]
+    styleUrls: ['./app.component.css'],
+    animations: [routeAnimation]
 })
 export class AppComponent implements OnInit {
     @ViewChild(MatSidenavContainer, { static: false }) sidenavContainer: MatSidenavContainer;
@@ -37,9 +39,10 @@ export class AppComponent implements OnInit {
             share()
         );
 
-    constructor(private breakpointObserver: BreakpointObserver,
-                private viewportService: ViewPortService,
-                private router: Router) {}
+    constructor(
+        private breakpointObserver: BreakpointObserver,
+        private viewportService: ViewPortService,
+        private router: Router) { }
 
     ngOnInit() {
         this.routerEvents();
@@ -47,9 +50,9 @@ export class AppComponent implements OnInit {
     }
 
     private routerEvents() {
-        this.router.events.pipe(filter( event => event instanceof RouterEvent))
-            .subscribe( (event: RouterEvent) => {
-                switch ( true ) {
+        this.router.events.pipe(filter(event => event instanceof RouterEvent))
+            .subscribe((event: RouterEvent) => {
+                switch (true) {
                     case event instanceof RouteConfigLoadStart:
                     case event instanceof NavigationStart:
                         this.isLoading = true;
@@ -63,7 +66,7 @@ export class AppComponent implements OnInit {
                         this.isLoading = false;
                         break;
                 }
-        });
+            });
     }
 
     getState(outlet: RouterOutlet) {
@@ -72,7 +75,7 @@ export class AppComponent implements OnInit {
 
     private onLayoutChange() {
         this.layoutChange$.subscribe(value => {
-            switch ( value ) {
+            switch (value) {
                 case this.breakpointObserver.isMatched('(max-width: 599.99px) and (orientation: portrait)'):
                     this.viewPort.device = 'mobile';
                     this.viewPort.orientation = 'portrait';
@@ -95,7 +98,7 @@ export class AppComponent implements OnInit {
                 case this.breakpointObserver.isMatched('(min-width: 600px) and (max-width: 959.99px) and (orientation: landscape)'):
                     this.viewPort.device = 'tablet';
                     this.viewPort.orientation = 'landscape';
-                    this.isHandset = false;
+                    this.isHandset = true;
                     break;
 
                 case this.breakpointObserver.isMatched('(min-width: 960px) and (max-width: 1279.99px) and (orientation: landscape)'):
@@ -106,6 +109,7 @@ export class AppComponent implements OnInit {
                     this.isHandset = false;
                     break;
             }
+            console.log(this.viewPort);
             this.viewportService.broadcastLayout(this.viewPort);
         });
     }

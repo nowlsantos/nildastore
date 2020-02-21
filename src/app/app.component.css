@@ -1,11 +1,11 @@
+.sidenav-container {
+    background-color: #e9e0f7;
+}
+
 main {
     position: relative;
     /* border: 1px solid red; */
     padding-top: 40px;
-}
-
-.sidenav-container {
-    background-color: #e9e0f7;
 }
 
 .sidenav {
@@ -15,9 +15,9 @@ main {
     color: white;
 }
 
-.mat-sidenav-container, .mat-sidenav-content {
+/* .mat-sidenav-container, .mat-sidenav-content {
     transform: none !important;
-}
+} */
 
 /* Preloader */
 :host ::ng-deep .custom-spinner circle {
@@ -35,13 +35,7 @@ main {
 
 /* Tablet Landscape */
 @media(min-width: 600px) and (max-width: 959.99px) and (orientation: landscape) {
-    /* .sidenav-container {
-        -ms-transform: rotate(-90deg);
-        -webkit-transform: rotate(-90deg); 
-        transform: rotate(-90deg);
-        overflow: scroll;
-    } */
-    .sidenav-container {
+    html {
         transform: rotate(-90deg);
         transform-origin: left top;
         width: 100vh;
@@ -49,17 +43,5 @@ main {
         position: absolute;
         top: 100%;
         left: 0;
-        overflow: scroll;
-        /* width:100vh;
-        -webkit-transform: rotate(-90deg);
-        -moz-transform: rotate(-90deg);
-        -o-transform: rotate(-90deg);
-        -ms-transform: rotate(-90deg);
-        transform: rotate(-90deg); */
     }
-}
-
-/* Tablet Portrait */
-@media(min-width: 600px) and (max-width: 839.99px) and (orientation: portrait) {
-    
 }
