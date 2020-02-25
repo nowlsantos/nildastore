@@ -4,7 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable, of } from 'rxjs';
 import { User } from './user.model';
-import { switchMap, map } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
@@ -30,9 +30,8 @@ export class AuthService {
         );
     }
 
-    getErrorMessage(error: Error): string {
+    getErrorMessage(error: Error) {
         console.log('SigUp Error: ', error.message);
-        return error.message;
     }
 
     async googleSignIn() {
@@ -53,7 +52,8 @@ export class AuthService {
                 // this.sendVerificationSignUp();
                 this.updateUserData(credential.user);
                 this.router.navigate(['/login']);
-            }).catch(error => this.getErrorMessage(error));
+            });
+        // .catch(error => this.getErrorMessage(error));
     }
 
     async sendVerificationSignUp() {
@@ -67,9 +67,10 @@ export class AuthService {
                 this.ngZone.run(() => {
                     // console.log('_User: ', this.user);
                     // this.router.navigate(['/login']);
-                    // this.updateUserData(credential.user);
+                    //  this.updateUserData(credential.user);
                 });
-            }).catch(error => this.getErrorMessage(error));
+            });
+        // .catch(error => this.getErrorMessage(error));
     }
 
     async signOut() {

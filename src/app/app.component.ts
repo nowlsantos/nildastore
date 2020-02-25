@@ -11,7 +11,6 @@ import { MatSidenav, MatSidenavContainer } from '@angular/material/sidenav';
 import { ViewPort } from './services/viewport.model';
 import { ViewPortService } from './services/viewport.service';
 import { routeAnimation } from './app.animation';
-import { AngularFireAuth } from '@angular/fire/auth/auth';
 
 @Component({
     selector: 'app-root',
@@ -111,7 +110,7 @@ export class AppComponent implements OnInit {
                     this.isHandset = false;
                     break;
             }
-            console.log(this.viewPort);
+            // console.log(this.viewPort);
             this.viewportService.broadcastLayout(this.viewPort);
         });
     }

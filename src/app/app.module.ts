@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
@@ -9,6 +9,8 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 // import { AngularFireStorageModule } from '@angular/fire/storage';
+
+import { GlobalErrorService } from './services/global-error.service';
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navbar/navigation.component';
@@ -34,7 +36,9 @@ import { HomeModule } from './home/home.module';
         HomeModule,
         AppRoutingModule,
     ],
-    providers: [],
+    providers: [
+        { provide: ErrorHandler, useClass: GlobalErrorService }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

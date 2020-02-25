@@ -1,22 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { LoginService } from '../login.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from '../user.model';
+import { ErrorService } from 'src/app/services/error.service';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
     loginForm: FormGroup;
     hide = true;
+    private submitted = false;
+    private messageSubscription: Subscription;
 
     constructor(
         public authService: AuthService,
         private loginService: LoginService,
+        private errorService: ErrorService,
+        private snackBar: MatSnackBar,
         private fb: FormBuilder) { }
 
     ngOnInit() {
@@ -28,10 +34,24 @@ export class LoginComponent implements OnInit {
 
         this.authService.user$.subscribe(user => {
             if (user) {
-                console.log('User onInit: ', user);
+                // console.log('User onInit: ', user);
                 this.loginService.broadcastLogin(user.isAdmin);
             }
         });
+
+        this.messageSubscription = this.errorService.message$.subscribe(error => {
+            if (error && this.submitted) {
+                // console.log('Login: ', error.message);
+                const data = error.message;
+                const position = data.lastIndexOf('Error');
+                const message = data.slice(position, data.length);
+                this.openSnackBar(message);
+            }
+        });
+    }
+
+    ngOnDestroy() {
+        this.messageSubscription.unsubscribe();
     }
 
     get email() {
@@ -52,6 +72,7 @@ export class LoginComponent implements OnInit {
     }
 
     onLogin() {
+        this.submitted = true;
         this.authService.emailSignIn(this.email.value, this.password.value);
     }
 
@@ -67,5 +88,17 @@ export class LoginComponent implements OnInit {
     onLogout() {
         this.authService.signOut();
         this.loginService.broadcastLogin(false);
+    }
+
+    openSnackBar(message: string) {
+        const config: MatSnackBarConfig = {
+            panelClass: ['sb-config-error'],
+            duration: 5000
+        };
+
+        const snackbar = this.snackBar.open(message, 'Close', config);
+        snackbar.afterDismissed().subscribe(_ => {
+            this.submitted = false;
+        });
     }
 }
