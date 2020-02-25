@@ -8,23 +8,23 @@ import { ProductBottomsheetComponent } from '../product-bottomsheet/product-bott
 @Component({
     selector: 'app-product',
     templateUrl: './product.component.html',
-    styleUrls: ['./product.component.css' ]
+    styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
 
     @Input() product: Product;
     @Input() viewport: ViewPort;
-    @Input() isLoggedIn: boolean;
+    @Input() isAdmin: boolean;
 
     constructor(private router: Router,
-                private bottomSheet: MatBottomSheet ) { }
+        private bottomSheet: MatBottomSheet) { }
 
     ngOnInit() {
     }
 
     viewProduct() {
         this.viewport.device === 'mobile' ? this.openBottomSheet()
-                                          : this.router.navigate(['/product', this.product.id]);
+            : this.router.navigate(['/product', this.product.id]);
     }
 
     openBottomSheet() {

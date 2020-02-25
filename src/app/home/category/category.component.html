@@ -1,10 +1,10 @@
 <section class="categories">
-    <div *ngFor="let item of categories" class="category-item">
-        <img [src]="item.image" alt="Pic of CategoryItem">
+    <div *ngFor="let item of categories" class="category-item" (click)="viewProductsBy(item.category)">
+        <img [src]="item.image" class="category-img" alt="Pic of CategoryItem">
         <div class="description">
             <h4>{{ item.title }}</h4>
             <p>{{ item.description}}</p>
-            <button mat-raised-button color="primary" (click)="viewProductsBy(item.category)">View</button>
+            <!-- <button mat-raised-button color="primary" (click)="viewProductsBy(item.category)">View</button> -->
         </div>
     </div>
 </section>

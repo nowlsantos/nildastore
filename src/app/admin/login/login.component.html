@@ -1,5 +1,4 @@
 <div *ngIf="authService.user$ | async as user; else login">
-    <!-- <pre>{{ user | json }}</pre> -->
     <div class="social-logout">
         <h4>You can now administer this site.</h4>
         <h5>Don't forget to logout when closin this app.</h5>
@@ -9,20 +8,24 @@
 
 <ng-template #login>
     <div class="social-login">
-        <!-- <button mat-raised-button class="google" (click)="googleLogin()">Google Login</button>
-            <button mat-raised-button class="facebook" (click)="facebookLogin()">Facebook Login</button> -->
         <mat-card>
             <mat-card-title>Login</mat-card-title>
             <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
                 <mat-form-field appearance="fill">
                     <mat-label>Enter your email</mat-label>
-                    <input matInput placeholder="you@example.com" formControlName="email">
+                    <input matInput 
+                           placeholder="you@example.com" 
+                           formControlName="email"
+                           autocomplete="email">
                     <mat-error *ngIf="email.invalid">{{ getEmailErrorMessage() }}</mat-error>
                 </mat-form-field>
         
                 <mat-form-field appearance="fill">
                     <mat-label>Enter your password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+                    <input matInput 
+                           [type]="hide ? 'password' : 'text'" 
+                           formControlName="password"
+                           autocomplete="current-password">
                     <mat-error *ngIf="password.invalid">{{ getPasswordErrorMessage() }}</mat-error>
                     <button mat-icon-button matSuffix 
                             (click)="hide = !hide" 

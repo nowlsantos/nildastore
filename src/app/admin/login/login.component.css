@@ -8,9 +8,10 @@
 .social-login {
     height: 90vh;
     display: block;
+    text-align: center;
 }
 
-/* .facebook {
+.facebook {
     background-color: dodgerblue;
     margin: 0 50px;
     color: white;
@@ -21,7 +22,7 @@
     margin: 20px 50px;
     width: 133px;   
     color: white;
-} */
+}
 
 .mat-card>:first-child, 
 .mat-card-content>:first-child {

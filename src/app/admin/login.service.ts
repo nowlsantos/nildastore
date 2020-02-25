@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class LoginService {
 
     private loginSource$ = new BehaviorSubject<boolean>(false);
-    loggedIn$ = this.loginSource$.asObservable();
+    admin$ = this.loginSource$.asObservable();
 
     constructor() { }
 

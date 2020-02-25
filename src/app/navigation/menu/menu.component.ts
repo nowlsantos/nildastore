@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuService } from '../../services/menu.service';
-import { Observable } from 'rxjs';
 import { Menu } from 'src/app/services/menu.model';
 
 @Component({
@@ -15,7 +14,9 @@ export class MenuComponent implements OnInit {
     cakes: Menu[];
     pastries: Menu[];
 
-    constructor(private menuService: MenuService, private router: Router) { }
+    constructor(
+        private menuService: MenuService,
+        private router: Router) { }
 
     ngOnInit() {
         this.menuService.getMenus().subscribe(menu => {
@@ -31,11 +32,7 @@ export class MenuComponent implements OnInit {
         });
     }
 
-    /* onLogin() {
+    onLoginRegister() {
         this.router.navigate(['/login']);
-    } */
-
-    onRegister() {
-        this.router.navigate(['/register']);
     }
 }

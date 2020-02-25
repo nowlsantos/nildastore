@@ -9,7 +9,7 @@
     <div *ngFor="let product of products$ | async; trackBy: trackByFn">
         <app-product [product]="product"
                      [viewport]="viewport"
-                     [isLoggedIn]="isLoggedIn">
+                     [isAdmin]="isAdmin">
         </app-product> 
     </div>
 

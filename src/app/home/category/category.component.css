@@ -1,14 +1,15 @@
 .category-item {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr;
     background-color: #ceb8f1;
-    height: auto;
     padding: 10px;
     color: #673fb1;
-    border: 5px solid white;
+    /* border: 5px solid white; */
     margin-bottom: 10px;
+    align-items: center;
 }
 
-.categories img {
+.category-item img {
     padding-right: 10px;
     height: 130px;
 }
@@ -26,6 +27,5 @@ h4 {
 }
 
 div p {
-    padding-bottom: 10px;
     font-size: 0.8em;
 }

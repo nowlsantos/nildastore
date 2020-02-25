@@ -17,7 +17,7 @@ import { MenuComponent } from './navigation/menu/menu.component';
 import { HomeModule } from './home/home.module';
 
 @NgModule({
-  declarations: [
+    declarations: [
         AppComponent,
         NavigationComponent,
         MenuComponent,

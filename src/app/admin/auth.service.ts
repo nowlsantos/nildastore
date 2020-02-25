@@ -4,7 +4,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable, of } from 'rxjs';
 import { User } from './user.model';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, map } from 'rxjs/operators';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
@@ -14,36 +14,25 @@ export class AuthService {
 
     user$: Observable<User>;
 
-    constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router, private ngZone: NgZone) {
+    constructor(
+        private afAuth: AngularFireAuth,
+        private afs: AngularFirestore,
+        private router: Router,
+        private ngZone: NgZone) {
         this.user$ = this.afAuth.authState.pipe(
             switchMap(user => {
-                return user ? this.afs.doc<User>(`users/${user.uid}`).valueChanges()
-                    : of(null);
+                if (user) {
+                    return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+                } else {
+                    return of(null);
+                }
             })
         );
     }
 
-    async emailSignUp(email: string, password: string) {
-        return await this.afAuth.createUserWithEmailAndPassword(email, password)
-            .then(result => {
-                this.sendVerificationSignUp();
-                this.updateUserData(result.user);
-            }).catch(error => console.log(error.message));
-    }
-
-    async sendVerificationSignUp() {
-        return (await this.afAuth.currentUser).sendEmailVerification()
-            .then(() => this.router.navigate(['/register']));
-    }
-
-    async emailSignIn(email: string, password: string) {
-        return await this.afAuth.signInWithEmailAndPassword(email, password)
-            .then(result => {
-                this.ngZone.run(() => {
-                    this.router.navigate(['/home']);
-                });
-                this.updateUserData(result.user);
-            }).catch(error => console.log(error.message));
+    getErrorMessage(error: Error): string {
+        console.log('SigUp Error: ', error.message);
+        return error.message;
     }
 
     async googleSignIn() {
@@ -58,6 +47,31 @@ export class AuthService {
         return this.updateUserData(credential.user);
     }
 
+    async emailSignUp(email: string, password: string) {
+        return this.afAuth.createUserWithEmailAndPassword(email, password)
+            .then(credential => {
+                // this.sendVerificationSignUp();
+                this.updateUserData(credential.user);
+                this.router.navigate(['/login']);
+            }).catch(error => this.getErrorMessage(error));
+    }
+
+    async sendVerificationSignUp() {
+        (await this.afAuth.currentUser).sendEmailVerification()
+            .then(() => this.router.navigate(['/login']));
+    }
+
+    async emailSignIn(email: string, password: string) {
+        return await this.afAuth.signInWithEmailAndPassword(email, password)
+            .then(credential => {
+                this.ngZone.run(() => {
+                    // console.log('_User: ', this.user);
+                    // this.router.navigate(['/login']);
+                    // this.updateUserData(credential.user);
+                });
+            }).catch(error => this.getErrorMessage(error));
+    }
+
     async signOut() {
         await this.afAuth.signOut();
         this.router.navigate(['/']);
@@ -66,7 +80,6 @@ export class AuthService {
     private updateUserData({ uid, displayName, email }: User) {
         // ---sets user data on firestore on login  ---
         const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${uid}`);
-
         const data = {
             uid,
             displayName,

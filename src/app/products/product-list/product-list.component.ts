@@ -17,7 +17,7 @@ export class ProductListComponent implements OnInit {
     products$: Observable<Product[]>;
     products: Product[];
     viewport: ViewPort;
-    isLoggedIn = false;
+    isAdmin = false;
     showFab = false;
     isLoading = true;
 
@@ -33,8 +33,8 @@ export class ProductListComponent implements OnInit {
             this.viewport = viewport;
         });
 
-        this.loginService.loggedIn$.subscribe(isLoggedIn => {
-            this.isLoggedIn = isLoggedIn;
+        this.loginService.admin$.subscribe(isAdmin => {
+            this.isAdmin = isAdmin;
         });
 
         this.route.queryParamMap.subscribe(params => {

@@ -21,13 +21,13 @@ const routes: Routes = [
             state: 'products'
         }
     },
-    {
-        path: 'register',
-        loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
-        data: {
-            state: 'register'
-        }
-    },
+    /*  {
+         path: 'register',
+         loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+         data: {
+             state: 'register'
+         }
+     }, */
     {
         path: 'login',
         loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),

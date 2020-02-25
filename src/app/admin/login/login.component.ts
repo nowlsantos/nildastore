@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { LoginService } from '../login.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { User } from '../user.model';
 
 @Component({
     selector: 'app-login',
@@ -21,10 +22,15 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
         this.loginForm = this.fb.group({
             email: ['', [Validators.email, Validators.required]],
-            password: ['', [Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
-            Validators.minLength(6),
-            Validators.maxLength(25),
-            Validators.required]]
+            // password: ['', [Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$'),
+            password: ['', [Validators.minLength(6), Validators.maxLength(25), Validators.required]]
+        });
+
+        this.authService.user$.subscribe(user => {
+            if (user) {
+                console.log('User onInit: ', user);
+                this.loginService.broadcastLogin(user.isAdmin);
+            }
         });
     }
 
@@ -46,7 +52,7 @@ export class LoginComponent implements OnInit {
     }
 
     onLogin() {
-        console.log(this.loginForm.value);
+        this.authService.emailSignIn(this.email.value, this.password.value);
     }
 
     facebookLogin() {
